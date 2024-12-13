@@ -1,1 +1,2 @@
-# Inkscape-Extension
+# Path2Fab
+## An Open-Source Inkscape extension for FabLabs
