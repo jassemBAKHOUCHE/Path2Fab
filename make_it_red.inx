@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
   <name>Make It Red</name>
-  <id>org.inkscape.tutorial.make_red_extension</id>
+  <id>org.inkscape.tutorial.make_it_red</id>
   <!--
   <param name="param_str" type="string" gui-text="Your name:"></param>
   <param name="tab" type="notebook">
@@ -32,6 +32,6 @@ This testing help text can be changed to help users of the extension.
     </effects-menu>
   </effect>
   <script>
-    <command location="inx" interpreter="python">make_red.py</command>
+    <command location="inx" interpreter="python">make_it_red.py</command>
   </script>
 </inkscape-extension>

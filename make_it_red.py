@@ -23,7 +23,7 @@ Description of this extension
 
 import inkex
 
-class MakeRedExtension(inkex.EffectExtension):
+class MakeItRed(inkex.EffectExtension):
     """An extension to fill all selected objects to red"""
     def add_arguments(self, pars):
         pars.add_argument("--my_option", type=inkex.Boolean,\
@@ -37,4 +37,4 @@ class MakeRedExtension(inkex.EffectExtension):
             elem.style['opacity'] = 1
 
 if __name__ == '__main__':
-    MakeRedExtension().run()
+    MakeItRed().run()
