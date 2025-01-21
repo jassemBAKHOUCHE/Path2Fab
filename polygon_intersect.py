@@ -49,8 +49,8 @@ class PolygonIntersect(inkex.EffectExtension):
                 if poly1.intersects(poly2):  # intersects func from shapely lib
                     #inkex.utils.debug(f"Intersection found between polygons {i} and {j}")
                     # set opacity to 0.20 for intersecting polygons
-                    self.set_opacity(elem1, 0.20)
-                    self.set_opacity(elem2, 0.20)
+                    self.set_opacity(elem1, 0.40)
+                    self.set_opacity(elem2, 0.40)
 
     def set_opacity(self, element, opacity):
         """Set the opacity of the element"""
