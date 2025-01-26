@@ -7,7 +7,7 @@ import sys
 import math 
 
 """
-Calcul the distance between two points in a Euclidian plan (jsp comment ont dit quand on a le graph euclidien... a voir)
+Calcul the distance between two points in a Euclidian plan
 Parameters : 
     a : start point, a tuple (x, y)
     b : end point, a tuple (x, y)
@@ -25,8 +25,8 @@ def distance(a, b):
 
 class IsolatedElement(inkex.EffectExtension):
     def add_arguments(self, pars):
-        # Ajouter un argument pour exclure certains calques/objets
-        pars.add_argument('--exclude_layers', type=str, default="layer1,svg1,namedview1,defs1", help="Liste des objets à exclure séparés par des virgules")
+        # add argument to exclude layers
+        pars.add_argument('--exclude_layers', type=str, default="layer1,svg1,namedview1,defs1", help="Comma-separated list of objects to exclude")
 
     def effect(self):
         tab_ids = []
@@ -90,8 +90,7 @@ class IsolatedElement(inkex.EffectExtension):
                 paths = tab_paths[0]
             for i in range(1, len(tab_paths)) :
                 paths += ", " + tab_paths[i]
-            sys.stderr.write(f'Warning : the next elements are isolated.\nElements involved : {paths}\nYou can find these elements in your project\'s layers.')
-
+            sys.stderr.write(f'Attention : les éléments suivants sont isolés.\nEléments impliqués : {paths}\nVous pouvez trouver ces éléments dans les calques de votre projet.')
 
 if __name__ == '__main__':
     IsolatedElement().run()
