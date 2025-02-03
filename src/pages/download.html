@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Télécharger l'extension Inkscape</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+<header class="bg-orange-600 text-white py-4 flex flex-row items-center justify-between">
+    <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold">Path2Fab</h1>
+    </div>
+    <nav class="flex items-center space-between px-4">
+        <span class="p-2 bg-orange-700 rounded hover:shadow-lg transition"><a href="./download.html">Téléchargement</a></span>
+        <span class="p-2  rounded hover:shadow-lg transition"><a href="./documentation.html">Documentation</a></span>
+    </nav>
+
+</header>
+
+<main class="m-4">
+    <h2 class="ml-2">Choisissez votre système d'exploitation</h2>
+    <p class="m-4">Vous pouvez télécharger l'extension Inkscape pour Windows ou Linux ci-dessous.</p>
+
+    <div class=>
+        <button id="windows-button" class="px-6 py-3 bg-orange-600 text-white font-semibold rounded-xl hover:bg-orange-700 transition" onclick="download('windows')">Télécharger pour Windows</button>
+        <button id="linux-button" class="px-6 py-3 bg-orange-600 text-white font-semibold rounded-xl hover:bg-orange-700 transition" onclick="download('linux')">Télécharger pour Linux</button>
+    </div>
+
+    <p id="message"></p>
+</main>
+
+<footer class="bg-orange-600 text-white px-4 py-3 absolute b-0 flex items-center justify-between w-full">
+    <p class="text-center">&copy; 2025 Inkscape Extension. Tous droits réservés.</p>
+</footer>
+
+<script>
+    function download(platform) {
+        let message = document.getElementById('message');
+        let downloadLink = '';
+
+        if (platform === 'windows') {
+            downloadLink = 'https://example.com/download/inksacpe-windows.zip'; // Remplacez par le lien de téléchargement réel
+            message.innerHTML = 'Téléchargement pour Windows lancé...';
+        } else if (platform === 'linux') {
+            downloadLink = 'https://example.com/download/inksacpe-linux.tar.gz'; // Remplacez par le lien de téléchargement réel
+            message.innerHTML = 'Téléchargement pour Linux lancé...';
+        }
+
+        window.location.href = downloadLink;
+    }
+</script>
+</body>
+</html>
