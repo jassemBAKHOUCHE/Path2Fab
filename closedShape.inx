@@ -7,7 +7,7 @@
     <effect>
         <object-type>all</object-type>
         <effects-menu>
-            <submenu name="Custom"/>
+            <submenu name="Path2Fab"/>
         </effects-menu>
     </effect>
     <script>
