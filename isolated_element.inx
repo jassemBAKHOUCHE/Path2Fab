@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
   <name>Isolated Element Extension</name>
-  <id>org.inkscape.fablab.isolated_element</id>
+  <id>org.inkscape.Path2Fab.isolated_element</id>
   <effect>
     <effects-menu>
-        <submenu name="Fablab"/>
+        <submenu name="Path2Fab"/>
     </effects-menu>
   </effect>
   <script>
