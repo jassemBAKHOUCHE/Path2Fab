@@ -6,7 +6,7 @@
     <title>Documentation - Extension Inkscape</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-100 font-sans leading-relaxed m-0 p-0 text-gray-800">
+<body class="bg-gray-100 font-sans leading-relaxed m-0 p-0 h-screen text-gray-800">
 <header class="bg-orange-600 text-white py-4 flex flex-row items-center justify-between">
     <div class="container mx-auto px-4">
         <h1 class="text-3xl font-bold">Path2Fab</h1>
@@ -18,15 +18,18 @@
 
 </header>
 
-<main class="container m-0 flex flex-row h-screen">
-    <section class="bg-gray-700 h-full w-fit pl-4 py-6 border-r-2 border-gray-800 pr-2">
+<main class="container m-0 flex flex-row h-full">
+    <section class="bg-gray-700 h-full w-xs pl-4 py-6 border-r-2 border-gray-800 pr-2">
             <nav>
                 <ul class="space-y-6">
                     <li>
                         <h2 class="text-xl font-bold text-gray-200">Généralité</h2>
                         <ul class="space-y-2 pl-4">
                             <li>
-                                <a href="" class="text-gray-400 hover:text-white transition"></a>
+                                <a href="#taille" class="text-gray-400 hover:text-white transition">Taille du document</a>
+                            </li>
+                            <li>
+                                <a href="#download" class="text-gray-400 hover:text-white transition">L'enregistrement</a>
                             </li>
                         </ul>
                     </li>
@@ -54,17 +57,29 @@
     </section>
 
     <div class="px-4 py-6">
-        <section class="mb-8  ">
-            <h2 class="text-2xl font-bold mb-4" id="color">Quelle couleur pour la laser</h2>
+        <h1 class="text-2xl font-bold mb-4">Généralité</h1>
+        <section class="mb-8">
+            <h2 class="text-l mb-4 ml-4 font-bold" id="taille">Taille du document</h2>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-l mb-4 ml-4 font-bold" id="download">L'enregistrement</h2>
+            <p class="ml-8">Vous pouvez enregistrer votre création dans plusieurs formats. <br>
+                Pour la laser, il vous faudra l'enregristrer en <b>dxf-14</b>.<br>
+                Vous avez juste à cliquer sur l'extention, à choisir enregistrement et choisir les différemnts formats dans lesquels vous voulez enregistrer votre fichier.
+            </p>
+        </section>
+        <h1 class="text-2xl font-bold mb-4">La Laser</h1>
+        <section class="mb-8 ">
+            <h2 class="text-l mb-4 ml-4 font-bold" id="color">Quelles couleurs ? </h2>
+            <p>Pour utiliser le logiciel de la découpeuse laser, il vous faudra n'avoir que ces couleurs sur votre svg. Qui correspondent à  : </p>
             <div class="flex flex-row ml-8"><span class="text-red-400"><b>-----</b></span><p class="ml-2">La découpe</p></div>
             <div class="flex flex-row ml-8"><span class="text-blue-400"><b>-----</b></span><p class="ml-2">La gravure</p></div>
             <div class="flex flex-row ml-8"><span class="text-dark-400"><b>-----</b></span><p class="ml-2">Le balayage</p></div>
-
-
         </section>
-
+        <h1 class="text-2xl font-bold mb-4">La brodeuse</h1>
+        <h1 class="text-2xl font-bold mb-4"1>Autres</h1>
         <section>
-            <h2 class="text-2xl font-bold mb-4">Support</h2>
+            <h2 class="text-l mb-4 ml-4 font-bold">Support</h2>
             <p class="text-gray-700">Si vous avez des questions ou des problèmes, veuillez consulter le <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contacter le support technique.</p>
         </section>
     </div>
