@@ -29,6 +29,7 @@ def produit_vectoriel(vecteur1, vecteur2):
 
 class IntersectionLignes(inkex.EffectExtension):
     def effect(self):
+        layer = self.svg.get_current_layer()
         self.msg("Début de l'analyse des intersections")
         segments = []
 
@@ -51,6 +52,7 @@ class IntersectionLignes(inkex.EffectExtension):
                 intersection = self.trouver_intersection(segments[index1], segments[index2])
                 if intersection is not None:
                     self.msg(f"Intersection entre {index1} et {index2} : {intersection}")
+                    self.add_intersection_arrow(intersection, layer)
 
     def extraire_points(self, donnees):
         tokens = re.findall(r"[MmLlZz]|[-+]?[0-9]*\.?[0-9]+(?:e[-+]?[0-9]+)?", donnees.replace(',', ' '))
@@ -142,6 +144,25 @@ class IntersectionLignes(inkex.EffectExtension):
             t = max(0, min(1, t))
             return p + r * t
         return None
+
+    def add_intersection_arrow(self, point, parent):
+        """
+        Adds an arrow (a red triangle) at the given point.
+        The arrow is defined with its tip at (0,0) so that after translation,
+        the tip aligns with the intersection.
+        """
+        arrow = inkex.PathElement()
+        # Define a simple arrow shape (triangle) pointing to the right.
+        # Tip at (0,0), then (10,5) and (10,-5).
+        arrow.set("d", "M0,0 L10,5 L10,-5 Z")
+        arrow.style = {
+            "stroke": "#ff0000",
+            "stroke-width": "1",
+            "fill": "#ff0000"
+        }
+        # Position the arrow so its tip is at the intersection point.
+        arrow.transform = f"translate({point.x+6},{point.y})"
+        parent.append(arrow)
 
 if __name__ == '__main__':
     IntersectionLignes().run()
