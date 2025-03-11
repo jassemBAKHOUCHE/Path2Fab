@@ -30,15 +30,14 @@ def produit_vectoriel(vecteur1, vecteur2):
 class IntersectionLignes(inkex.EffectExtension):
     def effect(self):
         layer = self.svg.get_current_layer()
-        self.msg("Début de l'analyse des intersections")
         segments = []
 
         for element in self.svg.xpath('//svg:path', namespaces=inkex.NSS):
             donnees = element.get('d')
-            self.msg(f"Données : {donnees}")
+            #self.msg(f"Données : {donnees}")
 
             points = self.extraire_points(donnees)
-            self.msg(f"Points : {points}")
+            #self.msg(f"Points : {points}")
 
             if len(points) < 2:
                 continue
@@ -51,7 +50,7 @@ class IntersectionLignes(inkex.EffectExtension):
             for index2 in range(index1+1, len(segments)):
                 intersection = self.trouver_intersection(segments[index1], segments[index2])
                 if intersection is not None:
-                    self.msg(f"Intersection entre {index1} et {index2} : {intersection}")
+                    #self.msg(f"Intersection entre {index1} et {index2} : {intersection}")
                     self.add_intersection_arrow(intersection, layer)
 
     def extraire_points(self, donnees):
@@ -152,8 +151,6 @@ class IntersectionLignes(inkex.EffectExtension):
         the tip aligns with the intersection.
         """
         arrow = inkex.PathElement()
-        # Define a simple arrow shape (triangle) pointing to the right.
-        # Tip at (0,0), then (10,5) and (10,-5).
         arrow.set("d", "M0,0 L10,5 L10,-5 Z")
         arrow.style = {
             "stroke": "#ff0000",
