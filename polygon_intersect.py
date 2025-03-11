@@ -29,35 +29,27 @@ class PolygonIntersect(inkex.EffectExtension):
     """An extension to set opacity of polygons to 0.20 when they intersect"""
 
     def effect(self):
-        # Collect all polygon elements
         polygons = []
         for elem in self.document.getroot().iter():
-            if isinstance(elem, inkex.PathElement):  # Check if the element is a path
-                # Convert the path's 'd' attribute to a Shapely polygon
-                path = parse_path(elem.get('d'))  # Parse the path from the 'd' attribute
-                # Convert the parsed path to a Shapely polygon
+            if isinstance(elem, inkex.PathElement):
+                path = parse_path(elem.get('d'))
                 if len(path) > 0:
                     coords = [(seg.start.real, seg.start.imag) for seg in path]
                     poly = Polygon(coords)
                     polygons.append((elem, poly))
 
-        # Check for intersections between polygons
+
         for i, (elem1, poly1) in enumerate(polygons):
             for j, (elem2, poly2) in enumerate(polygons):
-                if i >= j:  # ensure that poly 2 is NOT compared to poly 1 if poly 1 has been compared to poly 2
+                if i >= j:
                     continue
-                if poly1.intersects(poly2):  # intersects func from shapely lib
-                    #inkex.utils.debug(f"Intersection found between polygons {i} and {j}")
-                    # set opacity to 0.20 for intersecting polygons
+                if poly1.intersects(poly2):
                     self.set_opacity(elem1, 0.40)
                     self.set_opacity(elem2, 0.40)
 
     def set_opacity(self, element, opacity):
-        """Set the opacity of the element"""
-        # check elem has attribute with hasattr() and set opacity
         if hasattr(element, 'style'):
             element.style['opacity'] = opacity
-            #inkex.utils.debug(f"Set opacity to {opacity} for element {element.get_id()}")
 
 if __name__ == '__main__':
     PolygonIntersect().run()
