@@ -10,7 +10,7 @@
           <effect needs-live-preview="false">
             <object-type>all</object-type>
             <effects-menu>
-              <submenu name="Fablab"/>
+              <submenu name="Path2Fab"/>
             </effects-menu>
           </effect>
 
