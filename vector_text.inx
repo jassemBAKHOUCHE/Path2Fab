@@ -9,6 +9,6 @@
         </effects-menu>
     </effect>
     <script>
-        <command reldir="extensions" interpreter="python">VerifTexteVectorise.py</command>
+        <command reldir="extensions" interpreter="python">vector_text.py</command>
     </script>
 </inkscape-extension>
