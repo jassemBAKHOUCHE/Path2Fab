@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <name>Isolated Element Extension</name>
+  <name>Elements isolées</name>
   <id>org.inkscape.Path2Fab.isolated_element</id>
   <effect>
     <effects-menu>

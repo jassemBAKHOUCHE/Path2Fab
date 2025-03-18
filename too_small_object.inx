@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <name>Too Small Object Extension</name>
+  <name>Objets trop petits</name>
   <id>org.inkscape.Path2Fab.too_small_object</id>
   <effect>
     <effects-menu>
