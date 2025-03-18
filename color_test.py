@@ -1,4 +1,4 @@
-import inkex
+import TextElement, PathElement
 
 class CheckColor(inkex.EffectExtension):
     def effect(self):
