@@ -4,7 +4,9 @@
   <id>org.inkscape.Path2Fab.too_small_object</id>
   <effect>
     <effects-menu>
-        <submenu name="Path2Fab"/>
+        <submenu name="Path2Fab">
+            <submenu name="Vérification"/>
+        </submenu>
     </effects-menu>
   </effect>
   <script>

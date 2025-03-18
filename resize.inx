@@ -21,8 +21,6 @@
         <object-type>all</object-type>
         <effects-menu>
             <submenu name="Path2Fab">
-                <submenu name="SousMenu">
-                </submenu>
             </submenu>
         </effects-menu>
     </effect>
