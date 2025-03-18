@@ -5,7 +5,9 @@
     <effect>
         <object-type>all</object-type>
         <effects-menu>
-            <submenu name="Path2Fab"></submenu>
+            <submenu name="Path2Fab">
+                <submenu name="Vérification"/>
+            </submenu>
         </effects-menu>
     </effect>
     <script>
