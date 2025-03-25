@@ -54,7 +54,13 @@ class ClosedShape(inkex.EffectExtension):
 ### DRAW ARROWS ###
 class ImageWithLineWindow(Gtk.Window):
     def __init__(self, SVGFile, arrowsTab):
-        super().__init__(title="Image with Line")
+        # Show number of errors found as window title
+        err_found = len(arrowsTab)
+        if err_found > 0 :
+            title = "Nombre d'erreur(s) trouvée(s) : " + str(err_found)
+        else :
+            title = "Aucune erreur"
+        super().__init__(title=title)
 
         self.set_default_size(400, 400)
 
