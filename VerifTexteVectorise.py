@@ -25,24 +25,14 @@ class CheckVectorization(inkex.EffectExtension):
 
                 if bbox:
                     # Get coordinates for the rectangle 
-                    left_x = bbox.top
-                    right_x = left_x + bbox.height 
-                    top_y = bbox.left
-                    bottom_y = top_y + bbox.width                    
+                    left_x = bbox.top - 5
+                    right_x = left_x + bbox.height + 10
+                    top_y = bbox.left - 5 
+                    bottom_y = top_y + bbox.width + 10           
 
                     self.arrows.append([left_x, right_x, top_y, bottom_y])
-
-                    inkex.utils.debug(f"L'élément {element.get_id()} est un texte non vectorisé.\n")
-
-
-            elif isinstance(element, PathElement):
-                # Vérifier si le chemin provient d'un texte vectorisé
-                if element.get("inkscape:original-text", None) is not None:
-                    inkex.utils.debug(f"L'élément {element.get_id()} est un texte vectorisé.")
-                else:
-                    inkex.utils.debug(f"L'élément {element.get_id()} est un chemin, mais pas un texte vectorisé.")
-
-
+                
+                
 ### DRAW ARROWS ###
 class ImageWithLineWindow(Gtk.Window):
     def __init__(self, SVGFile, arrowsTab):
