@@ -34,11 +34,14 @@ class IntersectionLignes(inkex.EffectExtension):
 
         for element in self.svg.xpath('//svg:path', namespaces=inkex.NSS):
             donnees = element.get('d')
-            #self.msg(f"Données : {donnees}")
+
+            # Vérifier si le chemin contient des courbes, et les ignorer
+            if re.search(r"[CcQqSsTtAa]", donnees):
+                continue
 
             points = self.extraire_points(donnees)
-            #self.msg(f"Points : {points}")
 
+            # Ignorer les chemins avec moins de 2 points
             if len(points) < 2:
                 continue
 
@@ -46,11 +49,11 @@ class IntersectionLignes(inkex.EffectExtension):
                 segment = DirectedLineSegment(points[index], points[index+1])
                 segments.append(segment)
 
+        # Vérification des intersections
         for index1 in range(len(segments)):
             for index2 in range(index1+1, len(segments)):
                 intersection = self.trouver_intersection(segments[index1], segments[index2])
                 if intersection is not None:
-                    #self.msg(f"Intersection entre {index1} et {index2} : {intersection}")
                     self.add_intersection_arrow(intersection, layer)
 
     def extraire_points(self, donnees):
@@ -66,7 +69,7 @@ class IntersectionLignes(inkex.EffectExtension):
                 i += 1
                 if commande in "Zz":
                     if liste_points:
-                        liste_points.append(liste_points[0])
+                        liste_points.append(liste_points[0])  # Fermer le tracé
                     continue
             else:
                 try:
@@ -86,70 +89,32 @@ class IntersectionLignes(inkex.EffectExtension):
                     position = Vector2d(x, y)
                     liste_points.append(position)
                     commande = 'L'
-                elif commande == 'l':
+                elif commande in ('l', 'L'):
                     if position is None:
                         position = Vector2d(x, y)
                     else:
-                        position = position + Vector2d(x, y)
-                    liste_points.append(position)
-                elif commande == 'L':
-                    position = Vector2d(x, y)
+                        position = position + Vector2d(x, y) if commande == 'l' else Vector2d(x, y)
                     liste_points.append(position)
         return liste_points
 
     def trouver_intersection(self, segment1, segment2):
         tolerance = 1e-9
 
-        if ((abs(segment1.start.x - segment2.start.x) < tolerance and abs(segment1.start.y - segment2.start.y) < tolerance and
-             abs(segment1.end.x - segment2.end.x) < tolerance and abs(segment1.end.y - segment2.end.y) < tolerance) or
-            (abs(segment1.start.x - segment2.end.x) < tolerance and abs(segment1.start.y - segment2.end.y) < tolerance and
-             abs(segment1.end.x - segment2.start.x) < tolerance and abs(segment1.end.y - segment2.start.y) < tolerance)):
-            return (segment1.start, segment1.end)
-
-        p = segment1.start
-        r = segment1.end - segment1.start
-        q = segment2.start
-        s = segment2.end - segment2.start
+        p, r = segment1.start, segment1.end - segment1.start
+        q, s = segment2.start, segment2.end - segment2.start
 
         rxs = produit_vectoriel(r, s)
-
-        if abs(rxs) < tolerance:
-            if abs(produit_vectoriel(q - p, r)) < tolerance:
-                r_dot_r = r.x * r.x + r.y * r.y
-                if abs(r_dot_r) < tolerance:
-                    if abs(segment2.start.x - p.x) < tolerance and abs(segment2.start.y - p.y) < tolerance:
-                        return p
-                    else:
-                        return None
-                t0 = ((q - p).x * r.x + (q - p).y * r.y) / r_dot_r
-                t1 = (((segment2.end - p).x * r.x + (segment2.end - p).y * r.y)) / r_dot_r
-                t_min = min(t0, t1)
-                t_max = max(t0, t1)
-                if t_max < 0 or t_min > 1:
-                    return None
-                else:
-                    t_overlap_min = max(0, t_min)
-                    t_overlap_max = min(1, t_max)
-                    if abs(t_overlap_max - t_overlap_min) < tolerance:
-                        return p + r * t_overlap_min
-                    return (p + r * t_overlap_min, p + r * t_overlap_max)
-            else:
-                return None
         qmp = q - p
-        t = produit_vectoriel(qmp, s) / rxs
-        u = produit_vectoriel(qmp, r) / rxs
+        t = produit_vectoriel(qmp, s) / rxs if rxs else None
+        u = produit_vectoriel(qmp, r) / rxs if rxs else None
 
-        if -tolerance <= t <= 1 + tolerance and -tolerance <= u <= 1 + tolerance:
+        if rxs and -tolerance <= t <= 1 + tolerance and -tolerance <= u <= 1 + tolerance:
             t = max(0, min(1, t))
             return p + r * t
         return None
 
     def add_intersection_arrow(self, point, parent):
-        """
-        Adds an arrow (a red triangle) at the given point.
-        The arrow is defined with its tip at (0,0) so that after translation,
-        the tip aligns with the intersection.
-        """
+        """Ajoute un marqueur rouge aux intersections détectées."""
         arrow = inkex.PathElement()
         arrow.set("d", "M0,0 L10,5 L10,-5 Z")
         arrow.style = {
@@ -157,7 +122,6 @@ class IntersectionLignes(inkex.EffectExtension):
             "stroke-width": "1",
             "fill": "#ff0000"
         }
-        # Position the arrow so its tip is at the intersection point.
         arrow.transform = f"translate({point.x+6},{point.y})"
         parent.append(arrow)
 
