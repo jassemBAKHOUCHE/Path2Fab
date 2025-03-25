@@ -21,8 +21,7 @@ class CheckVectorization(inkex.EffectExtension):
                 # Add in the array for each element the position of the arrow
                 # Must use get_inkscape_bbox() when it comes to text elements
                 bbox = element.get_inkscape_bbox()
-                arrow_size = 15
-
+    
                 if bbox:
                     # Get coordinates for the rectangle 
                     left_x = bbox.top - 5
