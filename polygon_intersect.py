@@ -23,22 +23,26 @@ Description of this extension
 import inkex
 from shapely.geometry import Polygon
 from svgpathtools import parse_path
-from shapely.geometry import Polygon
 
 class PolygonIntersect(inkex.EffectExtension):
-    """An extension to set opacity of polygons to 0.20 when they intersect"""
+    """Reduit l'opacité des polygones qui s'intersectent."""
 
     def effect(self):
         polygons = []
+
         for elem in self.document.getroot().iter():
             if isinstance(elem, inkex.PathElement):
                 path = parse_path(elem.get('d'))
-                if len(path) > 0:
+
+                # on verifie que c'est un polygone fermé en comparant le premier et le dernier point (qui doivent être identique)
+                if len(path) > 2 and path[0].start == path[-1].end:
                     coords = [(seg.start.real, seg.start.imag) for seg in path]
                     poly = Polygon(coords)
-                    polygons.append((elem, poly))
 
+                    if poly.is_valid:
+                        polygons.append((elem, poly))
 
+        # boucle verification intersection
         for i, (elem1, poly1) in enumerate(polygons):
             for j, (elem2, poly2) in enumerate(polygons):
                 if i >= j:
@@ -49,7 +53,7 @@ class PolygonIntersect(inkex.EffectExtension):
 
     def set_opacity(self, element, opacity):
         if hasattr(element, 'style'):
-            element.style['opacity'] = opacity
+            element.style['opacity'] = str(opacity)
 
 if __name__ == '__main__':
     PolygonIntersect().run()
