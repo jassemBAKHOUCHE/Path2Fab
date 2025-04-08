@@ -2,7 +2,7 @@ import inkex
 import numpy as np
 from inkex.paths import CubicSuperPath
 from lxml import etree
-
+from svgpathtools import parse_path
 
 def bezier_bbox(curve):
     points = np.array(curve)
@@ -56,7 +56,8 @@ class BezierIntersection(inkex.EffectExtension):
 
         for path_idx, path in enumerate(paths):
             d = path.get('d')
-            if not d:  # not d -> pas de donnée dans le path
+            p = parse_path(path.get('d'))
+            if not d or (len(p) > 2 and p[0].start == p[-1].end):  # not d -> pas de donnée dans le path
                 continue
             csp = CubicSuperPath(d)
             for subpath_idx, subpath in enumerate(csp):
