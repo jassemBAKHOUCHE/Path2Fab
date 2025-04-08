@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <name>Intersection des lignes</name>
-  <id>org.inkscape.tutorial.line_intersect</id>
+  <name>Bezier Intersection</name>
+  <id>org.inkscape.tutorial.bezier_intersect</id>
   <effect>
     <!--object-type>path</object-type-->
     <effects-menu>
@@ -11,6 +11,6 @@
     </effects-menu>
   </effect>
   <script>
-    <command location="inx" interpreter="python">line_intersect.py</command>
+    <command location="inx" interpreter="python">bezier_intersect.py</command>
   </script>
 </inkscape-extension>
