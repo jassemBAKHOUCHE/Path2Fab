@@ -22,9 +22,8 @@ class ClosedShape(inkex.EffectExtension):
         tabelement = []
 
         for element in self.document.getroot().iter():
-            element_id = element.get_id()
             # check if the element is a path and if its border is blue
-            if isinstance(element, inkex.PathElement) and (element.style.get_color(name='stroke').red == 0 and element.style.get_color(name='stroke').blue == 255 and element.style.get_color(name='stroke').red == 0):
+            if isinstance(element, inkex.PathElement) and (element.style.get_color(name='stroke').red == 0 and element.style.get_color(name='stroke').blue == 255 and element.style.get_color(name='stroke').green == 0):
                 tabelement.append(element)
                 path = element.get_path()
 
@@ -49,7 +48,9 @@ class ClosedShape(inkex.EffectExtension):
                     right_y = center_y - arrow_size * math.sin(angle + math.pi / 6)
 
                     self.arrows.append([start_x, start_y, center_x, center_y, left_x, left_y, right_x, right_y])
-
+                    
+        # Indication about number of errors
+        self.msg(f"Nombre d'erreur(s) trouvée(s): {len(self.arrows)}")
 
 ### DRAW ARROWS ###
 class ImageWithLineWindow(Gtk.Window):
