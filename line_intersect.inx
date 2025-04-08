@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <name>Line Intersection</name>
+  <name>Intersection des lignes</name>
   <id>org.inkscape.tutorial.line_intersect</id>
   <effect>
     <!--object-type>path</object-type-->

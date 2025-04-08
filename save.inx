@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Save as ...</name>
+    <id>org.inkscape.save</id>
+
+    <param name="filename" type="string" _gui-text="Nom du fichier" />
+
+
+    <param name="export_pdf" type="boolean" _gui-text="Exporter en PDF" />
+    <param name="export_dxf" type="boolean" _gui-text="Exporter en DXF" />
+    <param name="export_svg" type="boolean" _gui-text="Exporter en SVG" />
+
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Path2Fab">
+            </submenu>
+        </effects-menu>
+    </effect>
+    
+    <script>
+        <command location="extensions" interpreter="python">save.py</command>
+    </script>
+
+</inkscape-extension>

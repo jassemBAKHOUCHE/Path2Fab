@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    
+    <name>Redimensionner le matériau</name>
+    <id>org.inkscape.resize_page</id>
+
+    <!-- Paramètres de l'extension -->
+    <param name="preset" type="optiongroup" gui-text="Présélection:">
+        <option value="custom">Personnalisé</option>
+        <option value="a4">A4 (210x297 mm)</option>
+        <option value="a3">A3 (297x420 mm)</option>
+        <option value="letter">Lettre (216x279 mm)</option>
+        <option value="square">Carré (200x200 mm)</option>
+    </param>
+    
+    <param name="width" type="float" min="1" max="1000" gui-text="Largeur (mm):">210</param>
+    <param name="height" type="float" min="1" max="1000" gui-text="Hauteur (mm):">297</param>
+
+    <!-- Définition de l'effet -->
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Path2Fab">
+            </submenu>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="extensions" interpreter="python">resize.py</command>
+    </script>
+
+</inkscape-extension>
