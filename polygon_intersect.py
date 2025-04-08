@@ -20,7 +20,12 @@
 """
 Description of this extension
 """
+import sys
+sys.path.append('libs')
+
 import inkex
+import shapely
+
 from shapely.geometry import Polygon
 from svgpathtools import parse_path
 
