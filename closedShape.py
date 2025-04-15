@@ -29,7 +29,7 @@ class ClosedShape(inkex.EffectExtension):
 
                 # Mark on wich elements should the arrow(s) be
                 bbox = element.bounding_box()
-                arrow_size = 15
+                arrow_size = 5
 
                 if bbox:
                     start_x = (bbox.left + bbox.right) / 2
@@ -56,10 +56,10 @@ class ImageWithLineWindow(Gtk.Window):
 
         # Convert GdkPixbuf to Pillow Image
         pil_image = self.gdkpixbuf_to_pil(self.pixbuf)
-
+        factor = 3.55
         # Draw on the Pillow image
         for arrow in arrowsTab :
-            self.draw_line_on_pil_image(pil_image, arrow[0], arrow[1], arrow[2], arrow[3], arrow[4], arrow[5], arrow[6], arrow[7])
+           self.draw_line_on_pil_image(pil_image, arrow[0]*factor, arrow[1]*factor, arrow[2]*factor, arrow[3]*factor, arrow[4]*factor, arrow[5]*factor, arrow[6]*factor, arrow[7]*factor)
         # Convert the Pillow image back to GdkPixbuf
         self.pixbuf = self.pil_to_gdkpixbuf(pil_image)
 
