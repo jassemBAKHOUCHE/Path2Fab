@@ -56,18 +56,31 @@ class ImageWithLineWindow(Gtk.Window):
 
         # Convert GdkPixbuf to Pillow Image
         pil_image = self.gdkpixbuf_to_pil(self.pixbuf)
+
         factor = 3.55
+        # Update arrow position
+        for i in range(len(arrowsTab)) :
+            for j in range(len(arrowsTab[i])) :
+                arrowsTab[i][j] = arrowsTab[i][j]*factor
+
         # Draw on the Pillow image
         for arrow in arrowsTab :
-           self.draw_line_on_pil_image(pil_image, arrow[0]*factor, arrow[1]*factor, arrow[2]*factor, arrow[3]*factor, arrow[4]*factor, arrow[5]*factor, arrow[6]*factor, arrow[7]*factor)
+            self.draw_line_on_pil_image(pil_image, arrow[0], arrow[1], arrow[2], arrow[3], arrow[4], arrow[5], arrow[6], arrow[7])
         # Convert the Pillow image back to GdkPixbuf
         self.pixbuf = self.pil_to_gdkpixbuf(pil_image)
 
         # Save the buffer into an image
-        self.pixbuf.savev('test2.jpeg', 'jpeg')
-        
-        # Show the image
-        img = Image.open('test2.jpeg') 
+        self.pixbuf.savev('tmp.png', 'png')                
+
+        image = Image.open('tmp.png')
+        # Create a white background
+        new_image = Image.new("RGBA", image.size, "WHITE") 
+        # Paste the image on the background
+        new_image.paste(image, (0, 0), image)  
+        # Save as JPEG            
+        new_image.convert('RGB').save('formes_fermees.jpg', "JPEG") 
+        # Display the image
+        img = Image.open("formes_fermees.jpg")
         img.show()
 
 
