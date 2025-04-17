@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Taille de la laser</name>
+    <id>org.inkscape.extension.strokeSize</id>
+ <param name="stroke_width_mm" type="float" min="0.0" max="100.0" _gui-text="Épaisseur souhaitée (mm)">0.2</param>    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Path2Fab">
+            </submenu>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">StrokeSize.py</command>
+    </script>
+</inkscape-extension>
