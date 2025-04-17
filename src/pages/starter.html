@@ -1,90 +1,164 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Inkscape - Débutants</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Poppins', sans-serif;
+        body {
+            font-family: 'Poppins', sans-serif;
             background-color: #fdfaf5;
-            color: #333; }
+            color: #333;
+        }
     </style>
 </head>
 <body class="h-screen flex flex-col">
-<!-- Header -->
-<header class="w-64 bg-[#073b4c] text-white py-4 fixed w-full shadow-md z-50">
 
+<!-- Header -->
+<header class="w-full bg-[#073b4c] text-white py-4 fixed shadow-md z-50">
     <div class="container mx-auto flex justify-between items-center px-6">
         <a href="#" class="text-2xl font-bold">Path2Fab</a>
         <nav>
             <ul class="flex space-x-6">
-                <li><a href="../../index.html" class="hover:text-[#06d6a0]">Accueil</a></li>
-                <li><a href="./documentation.html" class="hover:text-[#06d6a0]">Documentation</a></li>
                 <li><a href="./starter.html" class="hover:text-[#06d6a0]">Mode Débutant</a></li>
+                <li><a href="./expert.html" class="hover:text-[#06d6a0]">Mode Expert</a></li>
+                <li><a href="./lienUtile.html" class="hover:text-[#06d6a0]">Liens Utiles</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
+<!-- Sidebar + Content -->
 <div class="flex h-full pt-16 fixed w-full overflow-hidden">
-    <nav class="bg-[#073b4c] h-full text-gray-200 px-6 py-4 border-y border-black">
-        <ul>
-        <li><h2 class="text-2xl font-bold mb-4">Sommaire</h2></li>
-            <li> <a href="#parametres" class="text-gray-400 hover:text-white transition">Paramètres essentiels</a></li>
-            <li> <a href="#affichage" class="text-gray-400 hover:text-white transition">Modes d'affichage</a></li>
-            <li> <a href="#couleurs" class="text-gray-400 hover:text-white transition">Couleurs pour la découpe</a></li>
-            <li> <a href="#raccourcis" class="text-gray-400 hover:text-white transition">Raccourcis utiles</a></li>
-            <li> <a href="#remise" class="text-gray-400 hover:text-white transition">Remise à zéro des outils</a></li>
+    <!-- Sidebar -->
+    <nav class="w-64 bg-[#073b4c] h-full text-gray-200 px-6 py-4 overflow-y-auto border-y border-black">
+        <ul class="space-y-6">
+            <li>
+                <h2 class="text-xl font-bold">La vérification</h2>
+                <ul class="space-y-2 pl-4">
+                    <li><a href="#closed" class="text-gray-400 hover:text-white transition">Formes fermées</a></li>
+                    <li><a href="#isolated" class="text-gray-400 hover:text-white transition">Formes isolées</a></li>
+                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections</a></li>
+                    <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Vectorisation du texte</a></li>
+                    <li><a href="#color_check" class="text-gray-400 hover:text-white transition">Vérification des couleurs</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2 class="text-xl font-bold">Aide à la réalisation</h2>
+                <ul class="space-y-2 pl-4">
+                    <li><a href="#helplaser" class="text-gray-400 hover:text-white transition">Mode de la laser</a></li>
+                    <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Enregistrement du fichier</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 
-    <main class="flex-grow overflow-y-auto p-8 ">
-        <section id="parametres" class="mb-8">
-            <h2 class="text-3xl text-orange-500 font-bold"> 1. Paramètres essentiels</h2>
-            <ul class="list-disc ml-6">
-                <li>Unité par défaut : millimètres</li>
-                <li>Afficher la grille</li>
-                <li>Activer l'enregistrement automatique</li>
-            </ul>
+    <!-- Main Content -->
+    <main class="flex-grow overflow-y-auto p-8">
+        <h1 class="text-3xl text-orange-500 font-bold mb-8">La vérification de fichier</h1>
+
+        <section class="mb-8" id="closed">
+            <h2 class="text-xl text-orange-400 font-bold">Formes fermées</h2>
+            <p class="ml-2">Assurez-vous que toutes les formes utilisées pour la découpe sont bien fermées.</p>
         </section>
 
-        <section id="affichage" class="mb-8">
-            <h2 class="text-3xl text-orange-500 font-bold">2. Modes d'affichage</h2>
-            <p> Sur inkscape, vous avez plusieurs mode d'affichage, pour faire votre dessin nous vous conseillons de vous mettre en mode normal</p>
-            <img src="../assets/mode_affichage.png" alt="">
+        <section class="mb-8" id="isolated">
+            <h2 class="text-xl text-orange-400 font-bold">Formes isolées</h2>
+            <p class="ml-2">Évitez les éléments seuls non reliés ou oubliés sur le plan de travail.</p>
         </section>
 
-        <section id="couleurs" class="mb-8">
-            <h2 class="text-3xl text-orange-500 font-bold">3. Couleurs pour la découpe laser</h2>
-            <ul class="list-disc ml-6">
-                <li class="text-red-500">▮ Découpe : Rouge (#FF0000)</li>
-                <li class="text-blue-500">▮ Gravure : Bleu (#0000FF)</li>
-                <li class="text-gray-700">▮ Balayage : Noir (#000000)</li>
-            </ul>
+        <section class="mb-8" id="intersect">
+            <h2 class="text-xl text-orange-400 font-bold">Intersections</h2>
+            <p class="ml-2">Vous avez plusieurs tyep d'intersection, l'extention les gère différents.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
+                <div class="flex flex-col ">
+                    <p class="mb-4">Pour les lignes droites:</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/ligne.png" alt="Enregistrement - étape 1">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Pour les courbes :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/beziers.png" alt="Enregistrement - étape 2">
+                </div>
+            </div>
         </section>
 
-        <section id="raccourcis" class="mb-8">
-            <h2 class="text-3xl text-orange-500 font-bold">4. Raccourcis utiles</h2>
-            <ul class="list-disc ml-6">
-                <li>Ctrl + G : Grouper</li>
-                <li>Ctrl + Shift + G : Dégrouper</li>
-                <li>Ctrl + D : Dupliquer</li>
-                <li>Ctrl + Z : Annuler</li>
-            </ul>
+        <section class="mb-8" id="vector_text">
+            <h2 class="text-xl text-orange-400 font-bold">Vectorisation du texte</h2>
+            <p class="ml-2">Les textes non vectorisés ne sont pas compris par la laser. Alors il faut bien penser à les vectoriser. 
+            Notre extension vous permet de vérifier tous les textes. </p>
+            <img class="w-full max-w-3xl rounded shadow-lg mb-4" src="../../public/text.png" alt="">
+            Si vos textes sont en rouge encadré, cela veut dire qu'ils ne sont pas vectorisé !
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
+                <div class="flex flex-col ">
+                    <p class="mb-4">Un exemple du retour : </p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/" alt="Exemple vectorisation d'un texte ">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Pour mettre votre objet en chemin</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/objetenchemin.png" alt="Mettre un objet en chemin">
+                </div>
+            </div>
         </section>
 
-        <section id="remise" class="mb-8">
-            <h2 class="text-3xl text-orange-500 font-bold">5. Remise à zéro des outils Inkscape</h2>
-            <ul class="list-disc ml-6">
-                <li>Outil Sélection : Réinitialiser dans la barre de contrôle.</li>
-                <li>Outil Texte : Réinitialiser la police et la taille.</li>
-                <li>Outil Formes : Remettre les valeurs par défaut.</li>
-                <li>Outil Plume : Restaurer les styles de ligne par défaut.</li>
+        <section class="mb-8" id="color_check">
+            <h2 class="text-xl text-orange-400 font-bold">Vérification des couleurs</h2>
+            <p class="ml-2">Utilisez des couleurs précises selon la machine (ex. : Rouge = découpe, Bleu = gravure, Noir = balayage).</p>
+        </section>
+
+        <h1 class="text-3xl text-orange-500 font-bold my-8">Aide à la réalisation</h1>
+
+        <section class="mb-8" id="helplaser">
+            <h2 class="text-xl  text-orange-400 font-bold mb-4">Mode de la laser</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex flex-col items-center text-center">
+                    <span class="text-red-500 font-semibold mb-4 text-lg">▮ Découpe : Rouge (#FF0000)</span>
+                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/decoupe.png" alt="Découpe">
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <span class="text-blue-500 font-semibold mb-4 text-lg">▮ Gravure : Bleu (#0000FF)</span>
+                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/gravure.png" alt="Gravure">
+                </div>
+                <div class="flex flex-col items-center text-center md:col-span-2">
+                    <span class="text-black font-semibold mb-4 text-lg">▮ Balayage : Noir (#000000)</span>
+                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/balayage.png" alt="Balayage">
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="mb-8" id="downloads">
+            <h2 class="text-xl text-orange-400 font-bold mb-4">Enregistrement du fichier</h2>
+
+            <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
+            <ul class="list-disc ml-8 mb-4">
+                <li>PDF</li>
+                <li>DXF-12</li>
+                <li>SVG</li>
             </ul>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div class="flex flex-col">
+                    <p class="mb-4">Étapes pour l'enregistrement :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement1.png" alt="Enregistrement - étape 1">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Ensuite, sélectionnez le format souhaité :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement2.png" alt="Enregistrement - étape 2">
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl text-orange-400 font-bold">Support</h2>
+            <p class="text-gray-700">
+                Si vous avez des questions ou des problèmes, consultez le
+                <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contactez le support technique.
+            </p>
         </section>
     </main>
-
+</div>
 
 </body>
 </html>
