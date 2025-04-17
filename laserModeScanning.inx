@@ -12,6 +12,6 @@
         </effects-menu>
     </effect>
     <script>
-        <command location="inx" interpreter="python">laserMode_scanning.py</command>
+        <command location="inx" interpreter="python">laserModeScanning.py</command>
     </script>
 </inkscape-extension>

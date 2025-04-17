@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <name>CutOut</name>
-    <id>org.inkscape.extension.cutout</id>
+    <name>Engraving</name>
+    <id>org.inkscape.extension.engraving</id>
     <effect>
         <object-type>all</object-type>
         <effects-menu>
@@ -12,6 +12,6 @@
         </effects-menu>
     </effect>
     <script>
-        <command location="inx" interpreter="python">laserMode_cutout.py</command>
+        <command location="inx" interpreter="python">laserModeEngraving.py</command>
     </script>
 </inkscape-extension>

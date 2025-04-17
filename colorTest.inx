@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <name>Engraving</name>
-    <id>org.inkscape.extension.engraving</id>
+    <name>Couleur de la laser</name>
+    <id>org.inkscape.extension.color</id>
     <effect>
         <object-type>all</object-type>
         <effects-menu>
             <submenu name="Path2Fab">
-                <submenu name="Laser">
-                </submenu>
+                <submenu name="Vérification"/>
             </submenu>
         </effects-menu>
     </effect>
     <script>
-        <command location="inx" interpreter="python">laserMode_engraving.py</command>
+        <command location="inx" interpreter="python">colorTest.py</command>
     </script>
 </inkscape-extension>
