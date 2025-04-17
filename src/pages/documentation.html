@@ -1,67 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Path2Fab - Documentation</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #fdfaf5; color: #333; }
-        h1, h2 { font-weight: 700; }
-        .highlight { color: #ff7b00; }
+    body { font-family: 'Poppins', sans-serif;
+            background-color: #fdfaf5;
+            color: #333; }
     </style>
 </head>
-<body class="bg-white">
-<header class="bg-orange-500 text-white py-5 flex justify-between items-center shadow-lg fixed w-full z-10 ">
-    <h1 class="text-4xl font-extrabold px-6">Path2Fab</h1>
-    <nav class="flex space-x-4 pr-6">
-        <a href="./download.html" class="p-2 rounded hover:bg-orange-600">Téléchargement</a>
-        <a href="./documentation.html" class="p-2 rounded hover:bg-orange-600">Documentation</a>
-        <a href="./home.html" class="p-2 rounded hover:bg-orange-600">Mode Débutant</a>
-    </nav>
+<body class="h-screen flex flex-col">
+
+<!-- Header -->
+<header class="bg-[#073b4c] text-white py-4 fixed w-full shadow-md z-50">
+
+    <div class="container mx-auto flex justify-between items-center px-6">
+        <a href="#" class="text-2xl font-bold">Path2Fab</a>
+        <nav>
+            <ul class="flex space-x-6">
+                <li><a href="../../index.html" class="hover:text-[#06d6a0]">Accueil</a></li>
+                <li><a href="./documentation.html" class="hover:text-[#06d6a0]">Documentation</a></li>
+                <li><a href="./starter.html" class="hover:text-[#06d6a0]">Mode Débutant</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-<div class="flex">
-        <nav class="w-64 bg-gray-700 text-gray-200 h-screen fixed overflow-y-auto p-6 mt-[70px]">
-                <ul class="space-y-6">
-                    <li>
-                        <h2 class="text-xl font-bold text-gray-200 my-4">La vérification</h2>
-                        <ul class="space-y-2 pl-4">
-                            <li>
-                                <a href="#closed" class="text-gray-400 hover:text-white transition">Formes fermées</a>
-                            </li>
-                            <li>
-                                <a href="#isolated" class="text-gray-400 hover:text-white transition">Formes isolées</a>
-                            </li>
-                            <li>
-                                <a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections de formes</a>
-                            </li>
-                            <li>
-                                <a href="#vector_text" class="text-gray-400 hover:text-white transition">Vectorisation d'un texte</a>
-                            </li>
-                            <li>
-                                <a href="#colors" class="text-gray-400 hover:text-white transition">Couleur autorisé pour la laser</a>
-                            </li>
 
-                        </ul>
-                    </li>
-                    <li>
-                        <h2 class="text-xl font-bold text-gray-200 my-4">Aide à la réalisation </h2>
-                        <ul class="space-y-2 pl-4">
-                            <li>
-                                <a href="#color" class="text-gray-400 hover:text-white transition">Mode de la laser</a>
-                            </li>
-                            <li>
-                                <a href="#color" class="text-gray-400 hover:text-white transition">Enregistrement de fichier</a>
-                            </li>
-                        </ul>
-                    </li>
+<div class="flex h-full pt-16 fixed w-full overflow-hidden">
+    <nav class="w-64 bg-[#073b4c] h-full text-gray-200 px-6 py-4 border-y border-black">
+        <ul class="space-y-6">
+            <li>
+                <h2 class="text-xl font-bold">La vérification</h2>
+                <ul class="space-y-2 pl-4">
+                    <li><a href="#closed" class="text-gray-400 hover:text-white transition">Formes fermées</a></li>
+                    <li><a href="#isolated" class="text-gray-400 hover:text-white transition">Formes isolées</a></li>
+                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections de formes</a></li>
+                    <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Vectorisation d'un texte</a></li>
+                    <li><a href="#colors" class="text-gray-400 hover:text-white transition">Couleurs autorisées pour la laser</a></li>
                 </ul>
-        </nav>
+            </li>
+            <li>
+                <h2 class="text-xl font-bold">Aide à la réalisation</h2>
+                <ul class="space-y-2 pl-4">
+                    <li><a href="#helplaser" class="text-gray-400 hover:text-white transition">Mode de la laser</a></li>
+                    <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Enregistrement de fichier</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-    <main class="ml-64 flex-grow h-screen overflow-y-auto p-8 mt-[70px]">
+    <main class="flex-grow overflow-y-auto p-8 ">
+        <h1 class="text-3xl text-orange-500 font-bold mb-8">La vérification de fichier</h1>
 
-        <h1 class="text-3xl text-orange-500 font-bold my-8">La vérification de fichier</h1>
         <section class="mb-8">
             <h2 class="text-xl font-bold" id="closed">Formes fermées</h2>
         </section>
@@ -73,26 +66,35 @@
         </section>
         <section class="mb-8">
             <h2 class="text-xl font-bold" id="vector_text">Vectorisation d'un texte</h2>
+            <p class="ml-2">Les textes non vectorisés sont reconnaissables par un encadré de couleur rouge.</p>
+            <p class="ml-2">
+                Pour vectoriser un texte, <a href="#" class="text-blue-500 underline">utiliser l'objet en chemin</a>.
+            </p>
         </section>
         <section class="mb-8">
-            <h2 class="text-xl font-bold" id="colors">Couleur autorisé pour la laser</h2>
+            <h2 class="text-xl font-bold" id="colors">Couleurs autorisées pour la laser</h2>
         </section>
 
+        <h1 class="text-3xl text-orange-500 font-bold my-8">Aide à la réalisation</h1>
 
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="helplaser">Mode de la laser</h2>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="downloads">Enregistrement de fichier</h2>
+        </section>
 
         <section>
             <h2 class="text-2xl font-bold">Support</h2>
-            <p class="text-gray-700">Si vous avez des questions ou des problèmes, veuillez consulter le <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contacter le support technique.</p>
+            <p class="text-gray-700">
+                Si vous avez des questions ou des problèmes, consultez le
+                <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contactez le support technique.
+            </p>
         </section>
     </main>
 
-
 </div>
 
-<footer class="bg-orange-400 text-white py-4">
-    <div class="container mx-auto px-4 text-center">
-        <p>&copy; 2025 Documentation Extension Inkscape. Tous droits réservés.</p>
-    </div>
-</footer>
+
 </body>
 </html>

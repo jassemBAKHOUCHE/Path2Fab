@@ -5,30 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Guide Inkscape - Débutants</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>html { overflow-y: hidden; } </style>
+    <style>
+        body { font-family: 'Poppins', sans-serif;
+            background-color: #fdfaf5;
+            color: #333; }
+    </style>
 </head>
-<body>
-<header class="bg-orange-500 text-white py-5 flex justify-between items-center shadow-lg">
-    <h1 class="text-4xl font-extrabold px-6">Path2Fab</h1>
-    <nav class="flex space-x-4 pr-6">
-        <a href="./download.html" class="p-2 bg-orange-600 rounded hover:bg-orange-700">Téléchargement</a>
-        <a href="./documentation.html" class="p-2 bg-orange-600 rounded hover:bg-orange-700">Documentation</a>
-        <a href="./home.html" class="p-2 bg-orange-600 rounded hover:bg-orange-700">Mode Débutant</a>
-    </nav>
+<body class="h-screen flex flex-col">
+<!-- Header -->
+<header class="w-64 bg-[#073b4c] text-white py-4 fixed w-full shadow-md z-50">
+
+    <div class="container mx-auto flex justify-between items-center px-6">
+        <a href="#" class="text-2xl font-bold">Path2Fab</a>
+        <nav>
+            <ul class="flex space-x-6">
+                <li><a href="../../index.html" class="hover:text-[#06d6a0]">Accueil</a></li>
+                <li><a href="./documentation.html" class="hover:text-[#06d6a0]">Documentation</a></li>
+                <li><a href="./starter.html" class="hover:text-[#06d6a0]">Mode Débutant</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
-<div class="flex">
-    <nav class="w-64 bg-gray-700 text-gray-200 h-screen fixed overflow-y-auto p-6">
-        <h2 class="text-2xl font-bold mb-4">Sommaire</h2>
-        <a href="#parametres" class="block p-2 hover:bg-gray-600 rounded">Paramètres essentiels</a>
-        <a href="#affichage" class="block p-2 hover:bg-gray-600 rounded">Modes d'affichage</a>
-        <a href="#couleurs" class="block p-2 hover:bg-gray-600 rounded">Couleurs pour la découpe</a>
-        <a href="#raccourcis" class="block p-2 hover:bg-gray-600 rounded">Raccourcis utiles</a>
-        <a href="#remise" class="block p-2 hover:bg-gray-600 rounded">Remise à zéro des outils</a>
+
+<div class="flex h-full pt-16 fixed w-full overflow-hidden">
+    <nav class="bg-[#073b4c] h-full text-gray-200 px-6 py-4 border-y border-black">
+        <ul>
+        <li><h2 class="text-2xl font-bold mb-4">Sommaire</h2></li>
+            <li> <a href="#parametres" class="text-gray-400 hover:text-white transition">Paramètres essentiels</a></li>
+            <li> <a href="#affichage" class="text-gray-400 hover:text-white transition">Modes d'affichage</a></li>
+            <li> <a href="#couleurs" class="text-gray-400 hover:text-white transition">Couleurs pour la découpe</a></li>
+            <li> <a href="#raccourcis" class="text-gray-400 hover:text-white transition">Raccourcis utiles</a></li>
+            <li> <a href="#remise" class="text-gray-400 hover:text-white transition">Remise à zéro des outils</a></li>
+        </ul>
     </nav>
 
-    <main class="ml-64 flex-grow h-screen overflow-y-auto p-8">
+    <main class="flex-grow overflow-y-auto p-8 ">
         <section id="parametres" class="mb-8">
-            <h2 class="text-3xl text-orange-500 font-bold">1. Paramètres essentiels</h2>
+            <h2 class="text-3xl text-orange-500 font-bold"> 1. Paramètres essentiels</h2>
             <ul class="list-disc ml-6">
                 <li>Unité par défaut : millimètres</li>
                 <li>Afficher la grille</li>
@@ -38,11 +51,8 @@
 
         <section id="affichage" class="mb-8">
             <h2 class="text-3xl text-orange-500 font-bold">2. Modes d'affichage</h2>
-            <ul class="list-disc ml-6">
-                <li>Normal : Vue classique</li>
-                <li>Contour : Affiche les tracés</li>
-                <li>Noir et blanc : Vue simplifiée</li>
-            </ul>
+            <p> Sur inkscape, vous avez plusieurs mode d'affichage, pour faire votre dessin nous vous conseillons de vous mettre en mode normal</p>
+            <img src="../assets/mode_affichage.png" alt="">
         </section>
 
         <section id="couleurs" class="mb-8">
@@ -74,6 +84,7 @@
             </ul>
         </section>
     </main>
-</div>
+
+
 </body>
 </html>
