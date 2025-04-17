@@ -27,7 +27,7 @@ import re
 def produit_vectoriel(vecteur1, vecteur2):
     return vecteur1.x * vecteur2.y - vecteur1.y * vecteur2.x
 
-class IntersectionLignes(inkex.EffectExtension):
+class LineIntersect(inkex.EffectExtension):
     def effect(self):
         layer = self.svg.get_current_layer()
         segments = []
@@ -126,4 +126,4 @@ class IntersectionLignes(inkex.EffectExtension):
         parent.append(arrow)
 
 if __name__ == '__main__':
-    IntersectionLignes().run()
+    LineIntersect().run()

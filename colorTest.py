@@ -1,6 +1,6 @@
 import TextElement, PathElement
 
-class CheckColor(inkex.EffectExtension):
+class ColorTest(inkex.EffectExtension):
     def effect(self):
         selection = self.svg.selection
 
@@ -20,4 +20,4 @@ class CheckColor(inkex.EffectExtension):
 
 
 if __name__ == "__main__":
-    CheckColor().run()
+    ColorTest().run()

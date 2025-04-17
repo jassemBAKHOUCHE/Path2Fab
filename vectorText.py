@@ -1,7 +1,7 @@
 import inkex
 from inkex import TextElement, PathElement
 
-class CheckVectorization(inkex.EffectExtension):
+class VectorText(inkex.EffectExtension):
     def effect(self):
 
         for elem in self.svg.iter():
@@ -15,4 +15,4 @@ class CheckVectorization(inkex.EffectExtension):
                     inkex.utils.debug(f"L'élément {elem.get_id()} est un chemin, mais pas un texte vectorisé.")
 
 if __name__ == "__main__":
-    CheckVectorization().run()
+    VectorText().run()

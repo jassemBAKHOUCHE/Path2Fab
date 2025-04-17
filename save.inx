@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <name>Save as ...</name>
+    <name>Enregistrer sous ...</name>
     <id>org.inkscape.save</id>
 
     <param name="filename" type="string" _gui-text="Nom du fichier" />

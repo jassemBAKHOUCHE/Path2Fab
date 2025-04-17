@@ -48,7 +48,7 @@ def recursive_intersection(c1, c2, depth=10, tol=1.0):
     )
 
 
-class BezierIntersection(inkex.EffectExtension):
+class BezierIntersect(inkex.EffectExtension):
     def effect(self):
         layer = self.svg.get_current_layer()
         paths = self.svg.xpath('//svg:path', namespaces=inkex.NSS)
@@ -99,4 +99,4 @@ class BezierIntersection(inkex.EffectExtension):
 
 
 if __name__ == '__main__':
-    BezierIntersection().run()
+    BezierIntersect().run()
