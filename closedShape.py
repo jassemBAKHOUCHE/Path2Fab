@@ -15,26 +15,21 @@ class ClosedShape(inkex.EffectExtension):
         self.fileName = self.document_path()
         self.arrows = []
 
-    def add_arguments(self, pars):
-        pars.add_argument('--exclude_layers', type=str, default="layer1,svg1,namedview1,defs1", help="Liste des objets à exclure séparés par des virgules")
-
     def effect(self):
         tabelement = []
-
         for element in self.document.getroot().iter():
-            element_id = element.get_id()
-            # check if the element is a path and if its border is blue
-            if isinstance(element, inkex.PathElement) and (element.style.get_color(name='stroke').red == 0 and element.style.get_color(name='stroke').blue == 255 and element.style.get_color(name='stroke').red == 0):
+
+            # Test line color and type
+            if isinstance(element, inkex.PathElement) and (element.style.get_color(name='stroke').red == 0 and element.style.get_color(name='stroke').blue == 255 and element.style.get_color(name='stroke').green == 0):
                 tabelement.append(element)
                 path = element.get_path()
 
                 # svg indication for closed paths
                 if re.search("^.*[zZ]$", str(path)): continue
 
-                # If the path is open
-                # Add in the array for each element the position of the arrow
+                # Mark on wich elements should the arrow(s) be
                 bbox = element.bounding_box()
-                arrow_size = 15
+                arrow_size = 5
 
                 if bbox:
                     start_x = (bbox.left + bbox.right) / 2
@@ -50,19 +45,23 @@ class ClosedShape(inkex.EffectExtension):
 
                     self.arrows.append([start_x, start_y, center_x, center_y, left_x, left_y, right_x, right_y])
 
+        # Indication about number of errors
+        self.msg(f"Nombre d'erreur(s) trouvée(s) : {len(self.arrows)}\n\n")
 
 ### DRAW ARROWS ###
 class ImageWithLineWindow(Gtk.Window):
     def __init__(self, SVGFile, arrowsTab):
-        super().__init__(title="Image with Line")
-
-        self.set_default_size(400, 400)
-
         # Load the SVG into a GdkPixbuf
         self.pixbuf = GdkPixbuf.Pixbuf.new_from_file(SVGFile)
 
         # Convert GdkPixbuf to Pillow Image
         pil_image = self.gdkpixbuf_to_pil(self.pixbuf)
+
+        factor = 3.55
+        # Update arrow position
+        for i in range(len(arrowsTab)) :
+            for j in range(len(arrowsTab[i])) :
+                arrowsTab[i][j] = arrowsTab[i][j]*factor
 
         # Draw on the Pillow image
         for arrow in arrowsTab :
@@ -70,13 +69,20 @@ class ImageWithLineWindow(Gtk.Window):
         # Convert the Pillow image back to GdkPixbuf
         self.pixbuf = self.pil_to_gdkpixbuf(pil_image)
 
-        # Create the Gtk.Image and set the modified Pixbuf
-        self.image = Gtk.Image.new_from_pixbuf(self.pixbuf)
-        
-        # Create a container to pack the image
-        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        box.pack_start(self.image, True, True, 0)
-        self.add(box)
+        # Save the buffer into an image
+        self.pixbuf.savev('tmp.png', 'png')                
+
+        image = Image.open('tmp.png')
+        # Create a white background
+        new_image = Image.new("RGBA", image.size, "WHITE") 
+        # Paste the image on the background
+        new_image.paste(image, (0, 0), image)  
+        # Save as JPEG            
+        new_image.convert('RGB').save('formes_fermees.jpg', "JPEG") 
+        # Display the image
+        img = Image.open("formes_fermees.jpg")
+        img.show()
+
 
     def gdkpixbuf_to_pil(self, pixbuf):
         """Convert a GdkPixbuf to a Pillow Image."""
@@ -99,17 +105,13 @@ class ImageWithLineWindow(Gtk.Window):
         return pixbuf
 
     def draw_line_on_pil_image(self, pil_image,  center_x, center_y, start_x, start_y, left_x, left_y, right_x, right_y):
-        """Draw a red line on the Pillow image."""
+        """Draw a red line on the pillow image."""
         draw = ImageDraw.Draw(pil_image)
         draw.line([(start_x, start_y), (center_x, center_y)], fill="red", width=2)
         draw.line([(left_x, left_y), (center_x, center_y)], fill="red", width=2)
-        draw.line([(right_x, right_y), (center_x, center_y)], fill="red", width=2)
+        draw.line([(right_x, right_y), (center_x, center_y)], fill="red", width=2)         
 
-         
 if __name__ == '__main__':
     ink = ClosedShape()
     ink.run()
     win = ImageWithLineWindow(ink.fileName, ink.arrows) 
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()
