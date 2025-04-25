@@ -34,7 +34,6 @@ class PolygonIntersect(inkex.EffectExtension):
 
     def effect(self):
         polygons = []
-
         for elem in self.document.getroot().iter():
             if isinstance(elem, inkex.PathElement):
                 path = parse_path(elem.get('d'))
