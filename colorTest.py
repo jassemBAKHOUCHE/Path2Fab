@@ -1,3 +1,5 @@
+import sys
+sys.path.append('libs')
 import TextElement, PathElement
 
 class CheckColor(inkex.EffectExtension):
