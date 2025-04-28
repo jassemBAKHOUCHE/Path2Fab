@@ -1,4 +1,6 @@
 import inkex
+import sys
+sys.path.append('libs')
 import numpy as np
 from inkex.paths import CubicSuperPath
 from lxml import etree

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
   <name>Intersection de polygone</name>
-  <id>org.inkscape.tutorial.polygon_intersect</id>
-  =
+  <id>org.inkscape.tutorial.polygonIntersect</id>
   <effect>
     <!--object-type>path</object-type-->
     <effects-menu>
