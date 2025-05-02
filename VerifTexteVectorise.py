@@ -1,5 +1,5 @@
 import math
-import os
+import os, webbrowser
 import gi
 import inkex
 import numpy as np
@@ -21,7 +21,7 @@ class CheckVectorization(inkex.EffectExtension):
                 # Add in the array for each element the position of the arrow
                 # Must use get_inkscape_bbox() when it comes to text elements
                 bbox = element.get_inkscape_bbox()
-    
+
                 if bbox:
                     # Get coordinates for the rectangle 
                     left_x = bbox.top - 5
@@ -30,26 +30,24 @@ class CheckVectorization(inkex.EffectExtension):
                     bottom_y = top_y + bbox.width + 10           
 
                     self.arrows.append([left_x, right_x, top_y, bottom_y])
+        self.msg(f"Nombre d'erreur(s) trouvée(s): {len(self.arrows)}\n\n")
                 
-                
+
 ### DRAW ARROWS ###
 class ImageWithLineWindow(Gtk.Window):
     def __init__(self, SVGFile, arrowsTab):
-        # Show number of errors found as window title
-        err_found = len(arrowsTab)
-        if err_found > 0 :
-            title = "Nombre d'erreur(s) trouvée(s) : " + str(err_found)
-        else :
-            title = "Aucune erreur"
-        super().__init__(title=title)
-
-        self.set_default_size(400, 400)
-
         # Load the SVG into a GdkPixbuf
         self.pixbuf = GdkPixbuf.Pixbuf.new_from_file(SVGFile)
 
         # Convert GdkPixbuf to Pillow Image
         pil_image = self.gdkpixbuf_to_pil(self.pixbuf)
+
+        factor = 3.55
+        # Update arrow position
+        for i in range(len(arrowsTab)) :
+            for j in range(len(arrowsTab[i])) :
+                arrowsTab[i][j] = arrowsTab[i][j]*factor
+
 
         # Draw on the Pillow image
         for arrow in arrowsTab :
@@ -57,13 +55,20 @@ class ImageWithLineWindow(Gtk.Window):
         # Convert the Pillow image back to GdkPixbuf
         self.pixbuf = self.pil_to_gdkpixbuf(pil_image)
 
-        # Create the Gtk.Image and set the modified Pixbuf
-        self.image = Gtk.Image.new_from_pixbuf(self.pixbuf)
-        
-        # Create a container to pack the image
-        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        box.pack_start(self.image, True, True, 0)
-        self.add(box)
+        # Save the buffer into an image
+        self.pixbuf.savev('tmp.png', 'png')                
+
+        image = Image.open('tmp.png')
+        # Create a white background
+        new_image = Image.new("RGBA", image.size, "WHITE") 
+        # Paste the image on the background
+        new_image.paste(image, (0, 0), image)  
+        # Save as JPEG            
+        new_image.convert('RGB').save('text_vectorise.jpg', "JPEG") 
+        # Display the image
+        img = Image.open("text_vectorise.jpg")
+        img.show()
+
 
     def gdkpixbuf_to_pil(self, pixbuf):
         """Convert a GdkPixbuf to a Pillow Image."""
@@ -98,6 +103,3 @@ if __name__ == "__main__":
     ink = CheckVectorization()
     ink.run()
     win = ImageWithLineWindow(ink.fileName, ink.arrows) 
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()
