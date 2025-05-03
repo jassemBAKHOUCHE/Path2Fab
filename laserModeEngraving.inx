@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <name>Engraving</name>
+    <name>Gravure</name>
     <id>org.inkscape.extension.engraving</id>
     <effect>
         <object-type>all</object-type>
