@@ -46,7 +46,7 @@ class ClosedShape(inkex.EffectExtension):
                     self.arrows.append([start_x, start_y, center_x, center_y, left_x, left_y, right_x, right_y])
 
         # Indication about number of errors
-        self.msg(f"Nombre d'erreur(s) trouvée(s) : {len(self.arrows)}\n\n")
+        self.msg(f"FORMES FERMEES : Nombre d'erreur(s) trouvée(s) : {len(self.arrows)}\n\n")
 
 ### DRAW ARROWS ###
 class ImageWithLineWindow(Gtk.Window):

@@ -30,7 +30,7 @@ class VectorText(inkex.EffectExtension):
                     bottom_y = top_y + bbox.width + 10           
 
                     self.arrows.append([left_x, right_x, top_y, bottom_y])
-        self.msg(f"Nombre d'erreur(s) trouvée(s): {len(self.arrows)}\n\n")
+        self.msg(f"TEXTE VECTORISE : Nombre d'erreur(s) trouvée(s): {len(self.arrows)}\n\n")
                 
 
 ### DRAW ARROWS ###
