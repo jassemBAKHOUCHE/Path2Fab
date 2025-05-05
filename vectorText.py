@@ -7,6 +7,8 @@ from PIL import Image, ImageDraw
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, GdkPixbuf
 from inkex import TextElement, PathElement
+import warnings
+warnings.filterwarnings("ignore", category=ResourceWarning)
 
 class VectorText(inkex.EffectExtension):
     def __init__(self):
@@ -52,22 +54,23 @@ class ImageWithLineWindow(Gtk.Window):
         # Draw on the Pillow image
         for arrow in arrowsTab :
             self.draw_line_on_pil_image(pil_image, arrow[0], arrow[1], arrow[2], arrow[3])
-        # Convert the Pillow image back to GdkPixbuf
-        self.pixbuf = self.pil_to_gdkpixbuf(pil_image)
+        if len(arrowsTab) > 0:
+            # Convert the Pillow image back to GdkPixbuf
+            self.pixbuf = self.pil_to_gdkpixbuf(pil_image)
 
-        # Save the buffer into an image
-        self.pixbuf.savev('tmp.png', 'png')                
+            # Save the buffer into an image
+            self.pixbuf.savev('tmp.png', 'png')                
 
-        image = Image.open('tmp.png')
-        # Create a white background
-        new_image = Image.new("RGBA", image.size, "WHITE") 
-        # Paste the image on the background
-        new_image.paste(image, (0, 0), image)  
-        # Save as JPEG            
-        new_image.convert('RGB').save('text_vectorise.jpg', "JPEG") 
-        # Display the image
-        img = Image.open("text_vectorise.jpg")
-        img.show()
+            image = Image.open('tmp.png')
+            # Create a white background
+            new_image = Image.new("RGBA", image.size, "WHITE") 
+            # Paste the image on the background
+            new_image.paste(image, (0, 0), image)  
+            # Save as JPEG            
+            new_image.convert('RGB').save('text_vectorise.jpg', "JPEG") 
+            # Display the image
+            img = Image.open("text_vectorise.jpg")
+            img.show()
 
 
     def gdkpixbuf_to_pil(self, pixbuf):
