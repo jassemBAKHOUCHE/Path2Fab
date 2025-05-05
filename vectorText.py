@@ -8,7 +8,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, GdkPixbuf
 from inkex import TextElement, PathElement
 
-class CheckVectorization(inkex.EffectExtension):
+class VectorText(inkex.EffectExtension):
     def __init__(self):
         super().__init__()
         self.svg = os.path.join(self.svg_path(), self.name)
@@ -100,6 +100,6 @@ class ImageWithLineWindow(Gtk.Window):
         
 
 if __name__ == "__main__":
-    ink = CheckVectorization()
+    ink = VectorText()
     ink.run()
     win = ImageWithLineWindow(ink.fileName, ink.arrows) 
