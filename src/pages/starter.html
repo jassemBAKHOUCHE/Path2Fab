@@ -31,7 +31,7 @@
 <!-- Sidebar + Content -->
 <div class="flex h-full pt-16 fixed w-full overflow-hidden">
     <!-- Sidebar -->
-    <nav class="w-64 bg-[#073b4c] h-full text-gray-200 px-6 py-4 overflow-y-auto border-y border-black">
+    <nav class="w-[25vw] bg-[#073b4c] h-full text-gray-200 px-6 py-4 overflow-y-auto border-y border-black">
         <ul class="space-y-6">
             <li>
                 <h2 class="text-xl font-bold">La vérification</h2>
@@ -58,43 +58,67 @@
 
     <!-- Main Content -->
     <main class="flex-grow overflow-y-auto p-8">
-        <h1 class="text-3xl text-orange-500 font-bold mb-8">La vérification de fichier</h1>
+        <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">La vérification de fichier</h1>
         <p><b>Toutes les fonctionnalités présentées ci-dessous doivent être effectuée sur un fichier enregistré. </b></p>
         <section class="mb-8" id="closed">
-            <h2 class="text-xl text-orange-400 font-bold">Formes fermées</h2>
-            <p class="ml-2">Assurez-vous que toutes les formes utilisées pour la découpe sont bien fermées.</p>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Formes fermées</h2>
+            <p class="ml-2">Assurez-vous que toutes les formes utilisées pour la découpe sont bien fermées. Sinon vous pourriez avoir des suprises. Pour les éviter cette extension est faite pour ça. </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
+                <div class="flex flex-col ">
+                    <p class="mb-4">Pour accéder à l'extension :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/fermé.png" alt="Polygone">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Un exemple de retour :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/" alt="Retour fermé">
+                </div>
+            </div>
         </section>
 
         <section class="mb-8" id="isolated">
-            <h2 class="text-xl text-orange-400 font-bold">Formes isolées</h2>
-            <p class="ml-2">Évitez les éléments seuls non reliés ou oubliés sur le plan de travail.</p>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Formes isolées</h2>
+            <p class="ml-2">Il peut arriver qu'un objet se créer hors du plan de travail. Alors il peut vous arriver des surprises au moment de la gravure. </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
+                <div class="flex flex-col ">
+                    <p class="mb-4">Pour accéder à l'extension :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/isolated%20element.png" alt="Polygone">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Un exemple de retour :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/" alt="Retour isolated">
+                </div>
+            </div>
         </section>
 
         <section class="mb-8" id="intersect">
-            <h2 class="text-xl text-orange-400 font-bold">Intersections</h2>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Intersections</h2>
             <p class="ml-2">Vous avez plusieurs types d'intersection, l'extention les gère différemments.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
                 <div class="flex flex-col ">
-                    <p class="mb-4">Pour les lignes droites:</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/ligne.png" alt="Enregistrement - étape 1">
+                    <p class="mb-4">Pour les polygones:</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/poly.png" alt="Polygone">
                 </div>
                 <div class="flex flex-col">
                     <p class="mb-4">Pour les courbes :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/beziers.png" alt="Enregistrement - étape 2">
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/beziers.png" alt="Courbes">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Un exemple de retour</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/beziers.png" alt="retour intersection">
                 </div>
             </div>
         </section>
 
         <section class="mb-8" id="vector_text">
-            <h2 class="text-xl text-orange-400 font-bold">Vectorisation du texte</h2>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Vectorisation du texte</h2>
             <p class="ml-2">Les textes non vectorisés ne sont pas compris par la laser. Alors il faut bien penser à les vectoriser. 
             Notre extension vous permet de vérifier tous les textes. </p>
             <img class="w-full max-w-3xl rounded shadow-lg mb-4" src="../../public/text.png" alt="">
-            Si vos textes sont en rouge encadré, cela veut dire qu'ils ne sont pas vectorisé !
+            Si vos textes sont en rouge encadré sur l'image générée, cela veut dire qu'ils ne sont pas vectorisé !
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
                 <div class="flex flex-col ">
-                    <p class="mb-4">Un exemple du retour : </p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/" alt="Exemple vectorisation d'un texte ">
+                    <p class="mb-4">Un exemple du retour avec l'image généré: </p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/text_retour.png" alt="Exemple vectorisation d'un texte ">
                 </div>
                 <div class="flex flex-col">
                     <p class="mb-4">Pour mettre votre objet en chemin</p>
@@ -104,58 +128,67 @@
         </section>
 
         <section class="mb-8" id="color_check">
-            <h2 class="text-xl text-orange-400 font-bold">Vérification des couleurs</h2>
-            <p class="ml-2">Utilisez des couleurs précises selon la machine (ex. : Rouge = découpe, Bleu = gravure, Noir = balayage).</p>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Vérification des couleurs</h2>
+            <p class="ml-2">Vous ne savez pas si vous avez utiliser le bon rouge ou juste la bonne couleur pour la découpeuse laser ? Cette extension vous permet de le vérifier. </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
+                <div class="flex flex-col ">
+                    <p class="mb-4">Pour accéder à l'extension : </p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/couleur.png" alt="Exemple vectorisation d'un texte ">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Un exemple de retour : </p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/.png" alt="Retour couleur ">
+                </div>
+            </div>
         </section>
 
         <h1 class="text-3xl text-orange-500 font-bold my-8">Aide à la réalisation</h1>
 
         <section class="mb-8" id="helplaser">
-            <h2 class="text-xl  text-orange-400 font-bold mb-4">Mode de la laser</h2>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Mode de la laser</h2>
             <p>Le logiciel de découpe laser cut est un logiciel permettant de passer du dessin à la réalité. </p>
             <p>Il ne comprends que certaines couleurs qui permet de gérer les différents mode de découpe. </p>
             <p class="mb-8">Il vous faudra donc utiliser ces couleurs ci-dessous</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-red-500 font-semibold mb-4 text-lg">▮ Découpe : Rouge (#FF0000)</span>
+                    <span class="text-red-500 font-semibold mb-4 text-lg">Découpe : Rouge (#FF0000)</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/decoupe.png" alt="Découpe">
                 </div>
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-blue-500 font-semibold mb-4 text-lg">▮ Gravure : Bleu (#0000FF)</span>
+                    <span class="text-blue-500 font-semibold mb-4 text-lg">Gravure : Bleu (#0000FF)</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/gravure.png" alt="Gravure">
                 </div>
                 <div class="flex flex-col items-center text-center md:col-span-2">
-                    <span class="text-black font-semibold mb-4 text-lg">▮ Balayage : Noir (#000000)</span>
+                    <span class="text-black font-semibold mb-4 text-lg">Balayage : Noir (#000000)</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/balayage.png" alt="Balayage">
                 </div>
             </div>
         </section>
 
         <section class="mb-8" id="sizelaser">
-            <h2 class="text-xl text-orange-400 font-bold mb-4">Epaisseur des contours</h2>
-            Pour simuler la taille du laser de découpe sur le dessin, vous pouvez changer la taille des contours.
+            <h2 class="text-xl text-orange-400 font-bold m-6">Epaisseur des contours</h2>
+            Ils vous faudra parfois mettre vos contours à zéro ou alors juste changer l'épaisseur car celle-ci vous pertube. Cette extension vous permet de changer le contour des objets que vous choisissez.
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="flex flex-col items-center text-center">
-                    <span class=" font-semibold mb-4 text-lg">Etape 1 : Selectionner le ou les éléments que vous voulez modifier</span>
+                    <span class="mb-4 text-lg">Sélectionner les formes</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/size1.png" alt="Découpe">
                 </div>
                 <div class="flex flex-col items-center text-center">
-                    <span class=" font-semibold mb-4 text-lg">Etape 2 : Aller chercher l'extension taille de la laser</span>
+                    <span class="mb-4 text-lg">Pour accéder à l'extension</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/size2.png" alt="Gravure">
                 </div>
                 <div class="flex flex-col items-center text-center md:col-span-2">
-                    <span class=" font-semibold mb-4 text-lg">Etape 3 : Choississez la taille ! Vous pouvez même voir en temps réel le changement sans que ça ne change votre dessin</span>
+                    <span class="mb-4 text-lg">Choississer la taille :</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/balayage.png" alt="Balayage">
                     <p class="font-semibold text-lg m-4">Pour finir vous pouvez appliquer définitivement la taille sur appliquer puis quitter ou alors quitter directement et le ou les objets ne changeront pas. </p>
                 </div>
             </div>
-            <!-- Rénitialisation des contours à zéro -->
         </section>
 
 
 
         <section class="mb-8" id="downloads">
-            <h2 class="text-xl text-orange-400 font-bold mb-4">Enregistrement du fichier</h2>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Enregistrement du fichier</h2>
 
             <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
             <ul class="list-disc ml-8 mb-4">
@@ -166,43 +199,33 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div class="flex flex-col">
-                    <p class="mb-4">Étapes pour l'enregistrement :</p>
+                    <p class="mb-4">Pour accéder à l'enregistrement :</p>
                     <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement1.png" alt="Enregistrement - étape 1">
                 </div>
                 <div class="flex flex-col">
-                    <p class="mb-4">Ensuite, sélectionnez le format souhaité :</p>
+                    <p class="mb-4">Sélectionnez le format souhaité :</p>
                     <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement2.png" alt="Enregistrement - étape 2">
                 </div>
             </div>
         </section>
 
         <section class="mb-8" id="dimension">
-            <h2 class="text-xl text-orange-400 font-bold mb-4">Redimensionner le fichier</h2>
-
+            <h2 class="text-xl text-orange-400 font-bold m-6">Redimensionner le fichier</h2>
             <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
-            <ul class="list-disc ml-8 mb-4">
-                <li>PDF</li>
-                <li>DXF-12</li>
-                <li>SVG</li>
-            </ul>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div class="flex flex-col">
-                    <p class="mb-4">Étapes pour l'enregistrement :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement1.png" alt="Enregistrement - étape 1">
+                    <p class="mb-4">Pour accéder à l'extension :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/dimension1.png" alt="Enregistrement - étape 1">
                 </div>
                 <div class="flex flex-col">
-                    <p class="mb-4">Ensuite, sélectionnez le format souhaité :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement2.png" alt="Enregistrement - étape 2">
+                    <p class="mb-4">Sélectionnez le format souhaité :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/dimension2.png" alt="Enregistrement - étape 2">
                 </div>
             </div>
         </section>
         <section class="mb-8" id="groups">
-            <h2 class="text-xl text-orange-400 font-bold mb-4">Retirer les groupes</h2>
-
+            <h2 class="text-xl text-orange-400 font-bold m-6">Retirer les groupes</h2>
             <p class="mb-2">Sur inkscape, on peut former des groupes. Seulement les groupes peuvent causer des problèmes au niveau de la découpe laser ou de la brodeuse. Il faudra bien vous assurer qu'aucun groupe n'a été créer par erreur. Pour cela vous pouvez utilser cette extension. </p>
-
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div class="flex flex-col">
                     <p class="mb-4">Pour dégrouper, il faudra cliquer ici </p>
@@ -213,7 +236,7 @@
 
 
         <section class="mb-8">
-            <h2 class="text-2xl text-orange-400 font-bold">Support</h2>
+            <h2 class="text-xl text-orange-400 font-bold m-6">Support</h2>
             <p class="text-gray-700">
                 Si vous avez des questions ou des problèmes, consultez le
                 <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contactez le support technique.
