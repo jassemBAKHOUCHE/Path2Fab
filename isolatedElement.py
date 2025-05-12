@@ -2,6 +2,8 @@
 import inkex
 import math
 import sys
+import warnings
+warnings.filterwarnings("ignore", category=ResourceWarning)
 
 def distance(a, b):
     xa, ya = a
