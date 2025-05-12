@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Inkscape - Débutants</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/fullImage.js" defer></script>
+    <link rel="stylesheet" href="../assets/fullImage.css"/>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -18,39 +20,45 @@
 <!-- Header -->
 <header class="w-full bg-[#073b4c] text-white py-4 fixed shadow-md z-50">
     <div class="container mx-auto flex justify-between items-center px-6">
-        <a href="#" class="text-2xl font-bold">Path2Fab</a>
-        <nav>
-            <ul class="flex space-x-6">
-                <li><a href="./starter.html" class="hover:text-[#06d6a0]">Mode Débutant</a></li>
-                <li><a href="./expert.html" class="hover:text-[#06d6a0]">Mode Expert</a></li>
+        <a href="#" class="text-2xl font-bold text-orange-300 hover:text-white transition">Path2Fab</a>
+        <nav aria-label="Navigation principale">
+            <ul class="flex space-x-6 text-sm md:text-base">
+                <li><a href="./starter.html" class="hover:text-[#f4a261] transition-colors duration-300 underline-offset-4 hover:underline">Mode Débutant</a></li>
+                <li><a href="./expert.html" class="hover:text-[#f4a261] transition-colors duration-300 underline-offset-4 hover:underline">Mode Expert</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
+
+
 <!-- Sidebar + Content -->
 <div class="flex h-full pt-16 fixed w-full overflow-hidden">
     <!-- Sidebar -->
-    <nav class="w-[25vw] bg-[#073b4c] h-full text-gray-200 px-6 py-4 overflow-y-auto border-y border-black">
-        <ul class="space-y-6">
+    <nav class="w-[50vw] bg-[#073b4c] text-gray-200 px-6 py-6 h-screen overflow-y-auto border-r border-black" aria-label="Menu de documentation">
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-white">Sommaire</h1>
+        </div>
+        <ul class="space-y-8">
             <li>
-                <h2 class="text-xl font-bold">La vérification</h2>
-                <ul class="space-y-2 pl-4">
-                    <li><a href="#closed" class="text-gray-400 hover:text-white transition">Formes fermées</a></li>
-                    <li><a href="#isolated" class="text-gray-400 hover:text-white transition">Elément isolées</a></li>
-                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections</a></li>
-                    <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Vectorisation du texte</a></li>
-                    <li><a href="#color_check" class="text-gray-400 hover:text-white transition">Vérification des couleurs</a></li>
+                <h2 class="text-xl font-semibold text-orange-300 border-b border-gray-700 pb-1">La vérification</h2>
+                <ul class="mt-4 space-y-2 pl-2">
+                    <li><a href="#closed" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Formes fermées</a></li>
+                    <li><a href="#isolated" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Éléments isolés</a></li>
+                    <li><a href="#intersect" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Intersections</a></li>
+                    <li><a href="#vector_text" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vectorisation du texte</a></li>
+                    <li><a href="#color_check" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vérification des couleurs</a></li>
                 </ul>
             </li>
+
             <li>
-                <h2 class="text-xl font-bold">Aide à la réalisation</h2>
-                <ul class="space-y-2 pl-4">
-                    <li><a href="#helplaser" class="text-gray-400 hover:text-white transition">Mode de la laser</a></li>
-                    <li><a href="#sizelaser" class="text-gray-400 hover:text-white transition">Taille des contours</a></li>
-                    <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Enregistrement du fichier</a></li>
-                    <li><a href="#dimension" class="text-gray-400 hover:text-white transition">Redimensionner le fichier</a></li>
-                    <li><a href="#group" class="text-gray-400 hover:text-white transition">Retirer les groupes</a></li>
+                <h2 class="text-xl font-semibold text-orange-300 border-b border-gray-700 pb-1">Aide à la réalisation</h2>
+                <ul class="mt-4 space-y-2 pl-2">
+                    <li><a href="#helplaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Mode de la laser</a></li>
+                    <li><a href="#sizelaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Taille des contours</a></li>
+                    <li><a href="#downloads" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Enregistrement du fichier</a></li>
+                    <li><a href="#dimension" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Redimensionner le fichier</a></li>
+                    <li><a href="#group" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Retirer les groupes</a></li>
                 </ul>
             </li>
         </ul>
@@ -58,137 +66,180 @@
 
     <!-- Main Content -->
     <main class="flex-grow overflow-y-auto p-8">
-        <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">La vérification de fichier</h1>
-        <p class="text-red-500"><b>Toutes les fonctionnalités présentées ci-dessous doivent être effectuée sur un fichier enregistré. </b></p>
-        <section class="mb-8" id="closed">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Formes fermées</h2>
-            <p class="ml-2">Assurez-vous que toutes les formes utilisées pour la découpe sont bien fermées. Sinon vous pourriez avoir des suprises. Pour les éviter cette extension est faite pour ça. </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
-                <div class="flex flex-col ">
-                    <p class="mb-4">Pour accéder à l'extension :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/fermé.png" alt="Polygone">
+        <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">Vérification et préparation du fichier</h1>
+        <p class="bg-red-100 text-red-600 p-4 rounded-lg mb-6"><b>Important : Toutes les étapes suivantes doivent être effectuées sur un fichier préalablement enregistré. Cela garantit que vous ne perdrez pas vos modifications et que vous aurez un retour le plus complet possible.</b></p>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="#closed">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Formes fermées</h2>
+            <p class="text-gray-800 mb-6">
+                Veillez à ce que toutes les formes utilisées pour la découpe soient bien fermées. Des formes ouvertes peuvent entraîner des résultats imprévus. Cette extension est conçue pour vous aider à éviter ce type de problème.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <!-- Bloc 1 : Explication -->
+                <div>
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <p class="text-gray-700 mb-4">Dans votre extension Path2Fab, retrouvez cette option dans l'onglet "Vérifications" sous le nom "Formes fermées".</p>
+                    <img src="../../public/fermé.png" alt="Capture d'écran de l'accès" class="w-full rounded shadow-md cursor-zoom-in clickable-image">
                 </div>
-                <div class="flex flex-col">
-                    <p class="mb-4">Un exemple de retour sur une image enregistré :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/retourferme.png" alt="Retour fermé">
+
+                <!-- Bloc 2 : Résultat -->
+                <div>
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Résultat attendu</h3>
+                    <p class="text-gray-700 mb-4">Vous pouvez voir vos erreurs grâce à la flèche rouge présente sur l'image. </p>
+                    <img src="../../public/retourferme.png" alt="Exemple de sortie" class="w-full rounded shadow-md cursor-zoom-in clickable-image">
                 </div>
             </div>
         </section>
 
-        <section class="mb-8" id="isolated">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Formes isolées</h2>
-            <p class="ml-2">Il peut arriver qu'un objet se créer hors du plan de travail. Alors il peut vous arriver des surprises au moment de la gravure. </p>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="isolated">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Formes isolées</h2>
+            <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'un objet se crée hors du plan de travail. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
-                <div class="flex flex-col ">
-                    <p class="mb-4">Pour accéder à l'extension :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/isolated%20element.png" alt="Polygone">
-                </div>
+                <!-- Bloc 1 : Explication -->
                 <div class="flex flex-col">
-                    <p class="mb-4">Un exemple de retour :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/" alt="Retour isolated">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/isolated%20element.png" alt="Polygone" />
+                </div>
+
+                <!-- Bloc 2 : Résultat -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Exemple de retour</h3>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/retour-isolated.png" alt="Retour isolated" />
                 </div>
             </div>
         </section>
 
-        <section class="mb-8" id="intersect">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Intersections</h2>
-            <p class="ml-2">Vous avez plusieurs types d'intersection, l'extention les gère différemments.</p>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="intersect">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Intersections</h2>
+            <p class="ml-2 text-gray-800 mb-6">Vous avez plusieurs types d'intersections, et l'extension les gère différemment en fonction des cas.</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
-                <div class="flex flex-col ">
-                    <p class="mb-4">Pour les polygones:</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/poly.png" alt="Polygone">
-                </div>
+                <!-- Bloc 1 : Polygones -->
                 <div class="flex flex-col">
-                    <p class="mb-4">Pour les courbes :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/beziers.png" alt="Courbes">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder pour les polygones</h3>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/poly.png" alt="Polygone" />
                 </div>
+
+                <!-- Bloc 2 : Lignes -->
                 <div class="flex flex-col">
-                    <p class="mb-4">Un exemple de retour</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/.png" alt="retour intersection">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder pour les lignes</h3>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/beziers.png" alt="Courbes" />
+                </div>
+
+                <!-- Bloc 3 : Exemple de retour -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Exemple de retour</h3>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/retour-intersect.png" alt="Retour intersection" />
                 </div>
             </div>
         </section>
 
-        <section class="mb-8" id="vector_text">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Vectorisation du texte</h2>
-            <p class="mb-4">Les textes non vectorisés ne sont pas compris par la laser. Alors il faut bien penser à les vectoriser.
-            Notre extension vous permet de vérifier tous les textes. </p>
-            <img class="w-full max-w-3xl rounded shadow-lg mb-4" src="../../public/text.png" alt="">
-            Si vos textes sont en rouge encadré sur l'image générée, cela veut dire qu'ils ne sont pas vectorisé !
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
-                <div class="flex flex-col ">
-                    <p class="mb-4">Un exemple du retour avec l'image généré: </p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/text_retour.png" alt="Exemple vectorisation d'un texte ">
-                </div>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="vector_text">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Vectorisation du texte</h2>
+            <p class="mb-4 text-gray-800">Les textes non vectorisés ne sont pas compris par le laser. Il est donc essentiel de les vectoriser. Notre extension vous permet de vérifier facilement tous les textes présents dans votre design.</p>
+
+            <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+            <!-- Modification sur la largeur de l'image -->
+            <img class="w-full max-w-3xl mx-auto rounded shadow-md cursor-zoom-in clickable-image" src="../../public/text.png" alt="Exemple de texte non vectorisé" />
+            <p class="text-gray-700 mt-4">Si vos textes sont en rouge encadré sur l'image générée, cela veut dire qu'ils ne sont pas vectorisés !</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-6">
+                <!-- Bloc 1 : Exemple retour -->
                 <div class="flex flex-col">
-                    <p class="mb-4">Pour mettre votre objet en chemin</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/objetenchemin.png" alt="Mettre un objet en chemin">
+                    <p class="mb-4 text-gray-700">Un exemple du retour après la vérification :</p>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/text_retour.png" alt="Exemple de retour de vectorisation" />
+                </div>
+
+                <!-- Bloc 2 : Mettre l'objet en chemin -->
+                <div class="flex flex-col">
+                    <p class="mb-4 text-gray-700">Pour mettre votre objet en chemin, voici comment faire :</p>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/objetenchemin.png" alt="Mettre un objet en chemin" />
                 </div>
             </div>
         </section>
 
-        <section class="mb-8" id="color_check">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Vérification des couleurs</h2>
-            <p class="ml-2">Vous ne savez pas si vous avez utiliser le bon rouge ou juste la bonne couleur pour la découpeuse laser ? Cette extension vous permet de le vérifier. </p>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="color_check">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Vérification des couleurs</h2>
+            <p class="ml-2 text-gray-800">Vous ne savez pas si vous avez utilisé le bon rouge ou juste la bonne couleur pour la découpeuse laser ? Cette extension vous permet de le vérifier.</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
-                <div class="flex flex-col ">
-                    <p class="mb-4">Pour accéder à l'extension : </p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/couleur.png" alt="Exemple vectorisation d'un texte ">
-                </div>
+                <!-- Bloc 1 : Explication -->
                 <div class="flex flex-col">
-                    <p class="mb-4">Un exemple de retour : </p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/.png" alt="Retour couleur ">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full max-w-3xl mx-auto rounded shadow-md cursor-zoom-in clickable-image" src="../../public/couleur.png" alt="Exemple de vérification de la couleur" />
+                </div>
+
+                <!-- Bloc 2 : Exemple de retour -->
+                <div class="flex flex-col">
+                    <p class="mb-4 text-gray-700">Un exemple de retour :</p>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/.png" alt="Retour couleur" />
                 </div>
             </div>
         </section>
 
-        <h1 class="text-3xl text-orange-500 font-bold my-8">Aide à la réalisation</h1>
 
-        <section class="mb-8" id="helplaser">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Mode de la laser</h2>
-            <p>Le logiciel de découpe laser cut est un logiciel permettant de passer du dessin à la réalité. </p>
-            <p>Il ne comprends que certaines couleurs qui permet de gérer les différents mode de découpe. </p>
-            <p class="mb-8">Il vous faudra donc utiliser ces couleurs ci-dessous</p>
+        <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">Aide à la réalisation</h1>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="helplaser">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Mode de la laser</h2>
+            <p class="text-gray-800 mb-4">Le logiciel de découpe laser cut est un logiciel permettant de passer du dessin à la réalité.</p>
+            <p class="text-gray-800 mb-4">Il ne comprend que certaines couleurs qui permettent de gérer les différents modes de découpe.</p>
+            <p class="mb-8 text-gray-800">Il vous faudra donc utiliser ces couleurs ci-dessous.</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Découpe Rouge -->
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-red-500  mb-4 text-lg">Découpe : Rouge (#FF0000)</span>
-                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/decoupe.png" alt="Découpe">
+                    <span class="text-red-500 mb-4 text-lg">Découpe : Rouge (#FF0000)</span>
+                    <img class="w-full max-w-2xl rounded shadow-lg mx-auto" src="../../public/decoupe.png" alt="Découpe">
                 </div>
+
+                <!-- Gravure Bleu -->
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-blue-500  mb-4 text-lg">Gravure : Bleu (#0000FF)</span>
-                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/gravure.png" alt="Gravure">
+                    <span class="text-blue-500 mb-4 text-lg">Gravure : Bleu (#0000FF)</span>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/gravure.png" alt="Gravure">
                 </div>
+
+                <!-- Balayage Noir -->
                 <div class="flex flex-col items-center text-center md:col-span-2">
-                    <span class="text-black  mb-4 text-lg">Balayage : Noir (#000000)</span>
-                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/balayage.png" alt="Balayage">
+                    <span class="text-black mb-4 text-lg">Balayage : Noir (#000000)</span>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/balayage.png" alt="Balayage">
                 </div>
             </div>
         </section>
 
-        <section class="mb-8" id="sizelaser">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Epaisseur des contours</h2>
-            <p class="mb-4"> Ils vous faudra parfois mettre vos contours à zéro ou alors juste changer l'épaisseur car celle-ci vous pertube. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="sizelaser">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Epaisseur des contours</h2>
+            <p class="mb-4">Il vous faudra parfois mettre vos contours à zéro ou alors juste changer l'épaisseur, car celle-ci vous perturbe. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Sélectionner les formes -->
                 <div class="flex flex-col items-center text-center">
-                    <span class="mb-4 text-lg">Sélectionner les formes</span>
-                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/size1.png" alt="Découpe">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Sélectionner les formes</h3>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/size1.png" alt="Sélectionner les formes">
                 </div>
+
+                <!-- Comment y accéder -->
                 <div class="flex flex-col items-center text-center">
-                    <span class="mb-4 text-lg">Pour accéder à l'extension</span>
-                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/size2.png" alt="Gravure">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/size2.png" alt="Comment y accéder">
                 </div>
+
+                <!-- Choisir la taille -->
                 <div class="flex flex-col items-center text-center md:col-span-2">
-                    <span class="mb-4 text-lg">Choississer la taille :</span>
-                    <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/balayage.png" alt="Balayage">
-                    <p class="font-semibold text-lg m-4">Pour finir vous pouvez appliquer définitivement la taille sur appliquer puis quitter ou alors quitter directement et le ou les objets ne changeront pas. </p>
+                    <span class="mb-4 text-lg font-semibold">Choisir la taille :</span>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/balayage.png" alt="Choisir la taille">
+                    <p class="font-semibold text-lg mt-4 mb-4 text-center">Pour finir, vous pouvez appliquer définitivement la taille sur "Appliquer" puis quitter, ou alors quitter directement et le ou les objets ne changeront pas.</p>
                 </div>
             </div>
         </section>
 
-
-
-        <section class="mb-8" id="downloads">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Enregistrement du fichier</h2>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="downloads">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Enregistrement du fichier</h2>
 
             <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
             <ul class="list-disc ml-8 mb-4">
@@ -198,51 +249,66 @@
             </ul>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <div class="flex flex-col">
-                    <p class="mb-4">Pour accéder à l'enregistrement :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement1.png" alt="Enregistrement - étape 1">
+                <!-- Comment y accéder -->
+                <div class="flex flex-col items-center text-center">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/Enregistrement1.png" alt="Enregistrement - étape 1">
                 </div>
-                <div class="flex flex-col">
+
+                <!-- Sélectionner le format souhaité -->
+                <div class="flex flex-col items-center text-center">
                     <p class="mb-4">Sélectionnez le format souhaité :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement2.png" alt="Enregistrement - étape 2">
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/Enregistrement2.png" alt="Enregistrement - étape 2">
                 </div>
             </div>
         </section>
 
-        <section class="mb-8" id="dimension">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Redimensionner le fichier</h2>
-            <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="dimension">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Redimensionner le fichier</h2>
+            <p class="mb-2">Vous pouvez redimensionner votre fichier en fonction de vos besoins. Suivez les étapes ci-dessous :</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <div class="flex flex-col">
-                    <p class="mb-4">Pour accéder à l'extension :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/dimension1.png" alt="Enregistrement - étape 1">
+                <!-- Comment y accéder -->
+                <div class="flex flex-col items-center text-center">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/dimension1.png" alt="Redimensionner - étape 1">
                 </div>
-                <div class="flex flex-col">
+
+                <!-- Sélectionner le format souhaité -->
+                <div class="flex flex-col items-center text-center">
                     <p class="mb-4">Sélectionnez le format souhaité :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/dimension2.png" alt="Enregistrement - étape 2">
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/dimension2.png" alt="Redimensionner - étape 2">
                 </div>
             </div>
         </section>
-        <section class="mb-8" id="groups">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Retirer les groupes</h2>
-            <p class="mb-2">Sur inkscape, on peut former des groupes. Seulement les groupes peuvent causer des problèmes au niveau de la découpe laser ou de la brodeuse. Il faudra bien vous assurer qu'aucun groupe n'a été créer par erreur. Pour cela vous pouvez utilser cette extension. </p>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="groups">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Retirer les groupes</h2>
+            <p class="mb-2">Sur Inkscape, on peut former des groupes. Cependant, ces groupes peuvent causer des problèmes lors de la découpe laser ou de l’utilisation de la brodeuse. Assurez-vous qu’aucun groupe n’a été créé par erreur en utilisant cette extension.</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <div class="flex flex-col">
-                    <p class="mb-4">Pour dégrouper, il faudra cliquer ici </p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/groupes.png" alt="groupe">
+                <!-- Comment y accéder -->
+                <div class="flex flex-col items-center text-center">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/groupes.png" alt="Groupe dans Inkscape">
                 </div>
             </div>
         </section>
 
 
-        <section class="mb-8">
-            <h2 class="text-xl text-orange-400 font-bold m-6">Support</h2>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Support</h2>
             <p class="text-gray-700">
                 Si vous avez des questions ou des problèmes, consultez le
                 <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contactez le support technique.
             </p>
         </section>
     </main>
+</div>
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50">
+    <button id="lightbox-close" class="absolute top-4 right-6 text-white text-4xl font-bold hover:text-orange-400 transition">&times;</button>
+    <img src="" alt="Image agrandie" class="max-w-[90%] max-h-[90%] rounded shadow-lg">
 </div>
 
 </body>
