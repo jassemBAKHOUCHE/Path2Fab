@@ -59,7 +59,7 @@
     <!-- Main Content -->
     <main class="flex-grow overflow-y-auto p-8">
         <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">La vérification de fichier</h1>
-        <p><b>Toutes les fonctionnalités présentées ci-dessous doivent être effectuée sur un fichier enregistré. </b></p>
+        <p class="text-red-500"><b>Toutes les fonctionnalités présentées ci-dessous doivent être effectuée sur un fichier enregistré. </b></p>
         <section class="mb-8" id="closed">
             <h2 class="text-xl text-orange-400 font-bold m-6">Formes fermées</h2>
             <p class="ml-2">Assurez-vous que toutes les formes utilisées pour la découpe sont bien fermées. Sinon vous pourriez avoir des suprises. Pour les éviter cette extension est faite pour ça. </p>
@@ -69,8 +69,8 @@
                     <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/fermé.png" alt="Polygone">
                 </div>
                 <div class="flex flex-col">
-                    <p class="mb-4">Un exemple de retour :</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/" alt="Retour fermé">
+                    <p class="mb-4">Un exemple de retour sur une image enregistré :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/retourferme.png" alt="Retour fermé">
                 </div>
             </div>
         </section>
@@ -104,14 +104,14 @@
                 </div>
                 <div class="flex flex-col">
                     <p class="mb-4">Un exemple de retour</p>
-                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/beziers.png" alt="retour intersection">
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/.png" alt="retour intersection">
                 </div>
             </div>
         </section>
 
         <section class="mb-8" id="vector_text">
             <h2 class="text-xl text-orange-400 font-bold m-6">Vectorisation du texte</h2>
-            <p class="ml-2">Les textes non vectorisés ne sont pas compris par la laser. Alors il faut bien penser à les vectoriser. 
+            <p class="mb-4">Les textes non vectorisés ne sont pas compris par la laser. Alors il faut bien penser à les vectoriser.
             Notre extension vous permet de vérifier tous les textes. </p>
             <img class="w-full max-w-3xl rounded shadow-lg mb-4" src="../../public/text.png" alt="">
             Si vos textes sont en rouge encadré sur l'image générée, cela veut dire qu'ils ne sont pas vectorisé !
@@ -151,15 +151,15 @@
             <p class="mb-8">Il vous faudra donc utiliser ces couleurs ci-dessous</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-red-500 font-semibold mb-4 text-lg">Découpe : Rouge (#FF0000)</span>
+                    <span class="text-red-500  mb-4 text-lg">Découpe : Rouge (#FF0000)</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/decoupe.png" alt="Découpe">
                 </div>
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-blue-500 font-semibold mb-4 text-lg">Gravure : Bleu (#0000FF)</span>
+                    <span class="text-blue-500  mb-4 text-lg">Gravure : Bleu (#0000FF)</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/gravure.png" alt="Gravure">
                 </div>
                 <div class="flex flex-col items-center text-center md:col-span-2">
-                    <span class="text-black font-semibold mb-4 text-lg">Balayage : Noir (#000000)</span>
+                    <span class="text-black  mb-4 text-lg">Balayage : Noir (#000000)</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/balayage.png" alt="Balayage">
                 </div>
             </div>
@@ -167,7 +167,7 @@
 
         <section class="mb-8" id="sizelaser">
             <h2 class="text-xl text-orange-400 font-bold m-6">Epaisseur des contours</h2>
-            Ils vous faudra parfois mettre vos contours à zéro ou alors juste changer l'épaisseur car celle-ci vous pertube. Cette extension vous permet de changer le contour des objets que vous choisissez.
+            <p class="mb-4"> Ils vous faudra parfois mettre vos contours à zéro ou alors juste changer l'épaisseur car celle-ci vous pertube. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="flex flex-col items-center text-center">
                     <span class="mb-4 text-lg">Sélectionner les formes</span>
