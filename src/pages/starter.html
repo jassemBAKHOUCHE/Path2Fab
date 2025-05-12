@@ -37,7 +37,7 @@
                 <h2 class="text-xl font-bold">La vérification</h2>
                 <ul class="space-y-2 pl-4">
                     <li><a href="#closed" class="text-gray-400 hover:text-white transition">Formes fermées</a></li>
-                    <li><a href="#isolated" class="text-gray-400 hover:text-white transition">Formes isolées</a></li>
+                    <li><a href="#isolated" class="text-gray-400 hover:text-white transition">Elément isolées</a></li>
                     <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections</a></li>
                     <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Vectorisation du texte</a></li>
                     <li><a href="#color_check" class="text-gray-400 hover:text-white transition">Vérification des couleurs</a></li>
@@ -47,8 +47,10 @@
                 <h2 class="text-xl font-bold">Aide à la réalisation</h2>
                 <ul class="space-y-2 pl-4">
                     <li><a href="#helplaser" class="text-gray-400 hover:text-white transition">Mode de la laser</a></li>
-                    <li><a href="#sizelaser" class="text-gray-400 hover:text-white transition">Taille de la laser</a></li>
+                    <li><a href="#sizelaser" class="text-gray-400 hover:text-white transition">Taille des contours</a></li>
                     <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Enregistrement du fichier</a></li>
+                    <li><a href="#dimension" class="text-gray-400 hover:text-white transition">Redimensionner le fichier</a></li>
+                    <li><a href="#group" class="text-gray-400 hover:text-white transition">Retirer les groupes</a></li>
                 </ul>
             </li>
         </ul>
@@ -57,7 +59,7 @@
     <!-- Main Content -->
     <main class="flex-grow overflow-y-auto p-8">
         <h1 class="text-3xl text-orange-500 font-bold mb-8">La vérification de fichier</h1>
-
+        <p><b>Toutes les fonctionnalités présentées ci-dessous doivent être effectuée sur un fichier enregistré. </b></p>
         <section class="mb-8" id="closed">
             <h2 class="text-xl text-orange-400 font-bold">Formes fermées</h2>
             <p class="ml-2">Assurez-vous que toutes les formes utilisées pour la découpe sont bien fermées.</p>
@@ -110,10 +112,10 @@
 
         <section class="mb-8" id="helplaser">
             <h2 class="text-xl  text-orange-400 font-bold mb-4">Mode de la laser</h2>
+            <p>Le logiciel de découpe laser cut est un logiciel permettant de passer du dessin à la réalité. </p>
+            <p>Il ne comprends que certaines couleurs qui permet de gérer les différents mode de découpe. </p>
+            <p class="mb-8">Il vous faudra donc utiliser ces couleurs ci-dessous</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <p>Le logiciel de découpe laser cut est un logiciel permettant de passer du dessin à la réalité. </p>
-                <p>Il ne comprends que certaines couleurs qui permet de gérer les différents mode de découpe. </p>
-                <p>Il vous faudra donc utiliser ces couleurs ci-dessous</p>
                 <div class="flex flex-col items-center text-center">
                     <span class="text-red-500 font-semibold mb-4 text-lg">▮ Découpe : Rouge (#FF0000)</span>
                     <img class="w-full max-w-2xl rounded shadow-lg" src="../../public/decoupe.png" alt="Découpe">
@@ -173,6 +175,42 @@
                 </div>
             </div>
         </section>
+
+        <section class="mb-8" id="dimension">
+            <h2 class="text-xl text-orange-400 font-bold mb-4">Redimensionner le fichier</h2>
+
+            <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
+            <ul class="list-disc ml-8 mb-4">
+                <li>PDF</li>
+                <li>DXF-12</li>
+                <li>SVG</li>
+            </ul>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div class="flex flex-col">
+                    <p class="mb-4">Étapes pour l'enregistrement :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement1.png" alt="Enregistrement - étape 1">
+                </div>
+                <div class="flex flex-col">
+                    <p class="mb-4">Ensuite, sélectionnez le format souhaité :</p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/Enregistrement2.png" alt="Enregistrement - étape 2">
+                </div>
+            </div>
+        </section>
+        <section class="mb-8" id="groups">
+            <h2 class="text-xl text-orange-400 font-bold mb-4">Retirer les groupes</h2>
+
+            <p class="mb-2">Sur inkscape, on peut former des groupes. Seulement les groupes peuvent causer des problèmes au niveau de la découpe laser ou de la brodeuse. Il faudra bien vous assurer qu'aucun groupe n'a été créer par erreur. Pour cela vous pouvez utilser cette extension. </p>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div class="flex flex-col">
+                    <p class="mb-4">Pour dégrouper, il faudra cliquer ici </p>
+                    <img class="w-full max-w-3xl rounded shadow-lg" src="../../public/groupes.png" alt="groupe">
+                </div>
+            </div>
+        </section>
+
 
         <section class="mb-8">
             <h2 class="text-2xl text-orange-400 font-bold">Support</h2>
