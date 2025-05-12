@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <name>Bezier Intersection</name>
+  <name>Intersection ligne et courbe</name>
   <id>org.inkscape.tutorial.bezier_intersect</id>
   <effect>
     <!--object-type>path</object-type-->
