@@ -15,7 +15,7 @@
         }
     </style>
 </head>
-<body class="h-screen flex flex-col">
+<body class="h-screen flex flex-col scroll-smooth">
 
 <!-- Header -->
 <header class="w-full bg-[#073b4c] text-white py-4 fixed shadow-md z-50">
@@ -33,9 +33,9 @@
 
 
 <!-- Sidebar + Content -->
-<div class="flex h-full pt-16 fixed w-full overflow-hidden">
+<div class="flex pt-16 h-full min-h-screen w-full">
     <!-- Sidebar -->
-    <nav class="w-[50vw] bg-[#073b4c] text-gray-200 px-6 py-6 h-screen overflow-y-auto border-r border-black" aria-label="Menu de documentation">
+    <nav class="w-[15vw] bg-[#073b4c] fixed text-gray-200 px-6 py-6 h-screen overflow-y-auto border-r border-black" aria-label="Menu de documentation">
         <div class="mb-8">
             <h1 class="text-2xl font-bold text-white">Sommaire</h1>
         </div>
@@ -65,11 +65,10 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow overflow-y-auto p-8">
+    <main class="pt-20 ml-[16vw] px-6">
         <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">Vérification et préparation du fichier</h1>
         <p class="bg-red-100 text-red-600 p-4 rounded-lg mb-6"><b>Important : Toutes les étapes suivantes doivent être effectuées sur un fichier préalablement enregistré. Cela garantit que vous ne perdrez pas vos modifications et que vous aurez un retour le plus complet possible.</b></p>
-
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="#closed">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="closed">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Formes fermées</h2>
             <p class="text-gray-800 mb-6">
                 Veillez à ce que toutes les formes utilisées pour la découpe soient bien fermées. Des formes ouvertes peuvent entraîner des résultats imprévus. Cette extension est conçue pour vous aider à éviter ce type de problème.
@@ -92,7 +91,7 @@
             </div>
         </section>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="isolated">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="isolated">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Formes isolées</h2>
             <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'un objet se crée hors du plan de travail. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
 
@@ -111,7 +110,7 @@
             </div>
         </section>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="intersect">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="intersect">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Intersections</h2>
             <p class="ml-2 text-gray-800 mb-6">Vous avez plusieurs types d'intersections, et l'extension les gère différemment en fonction des cas.</p>
 
@@ -137,7 +136,7 @@
         </section>
 
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="vector_text">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="vector_text">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Vectorisation du texte</h2>
             <p class="mb-4 text-gray-800">Les textes non vectorisés ne sont pas compris par le laser. Il est donc essentiel de les vectoriser. Notre extension vous permet de vérifier facilement tous les textes présents dans votre design.</p>
 
@@ -149,20 +148,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-6">
                 <!-- Bloc 1 : Exemple retour -->
                 <div class="flex flex-col">
-                    <p class="mb-4 text-gray-700">Un exemple du retour après la vérification :</p>
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Un exemple du retour après la vérification :</h3>
                     <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/text_retour.png" alt="Exemple de retour de vectorisation" />
                 </div>
 
                 <!-- Bloc 2 : Mettre l'objet en chemin -->
                 <div class="flex flex-col">
-                    <p class="mb-4 text-gray-700">Pour mettre votre objet en chemin, voici comment faire :</p>
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Pour mettre votre objet en chemin, voici comment faire :</h3>
                     <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/objetenchemin.png" alt="Mettre un objet en chemin" />
                 </div>
             </div>
         </section>
 
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="color_check">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="color_check">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Vérification des couleurs</h2>
             <p class="ml-2 text-gray-800">Vous ne savez pas si vous avez utilisé le bon rouge ou juste la bonne couleur pour la découpeuse laser ? Cette extension vous permet de le vérifier.</p>
 
@@ -175,7 +174,7 @@
 
                 <!-- Bloc 2 : Exemple de retour -->
                 <div class="flex flex-col">
-                    <p class="mb-4 text-gray-700">Un exemple de retour :</p>
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Un exemple de retour :</h3>
                     <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/.png" alt="Retour couleur" />
                 </div>
             </div>
@@ -184,7 +183,7 @@
 
         <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">Aide à la réalisation</h1>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="helplaser">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="helplaser">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Mode de la laser</h2>
             <p class="text-gray-800 mb-4">Le logiciel de découpe laser cut est un logiciel permettant de passer du dessin à la réalité.</p>
             <p class="text-gray-800 mb-4">Il ne comprend que certaines couleurs qui permettent de gérer les différents modes de découpe.</p>
@@ -193,26 +192,26 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Découpe Rouge -->
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-red-500 mb-4 text-lg">Découpe : Rouge (#FF0000)</span>
+                    <h3 class="text-lg font-semibold text-red-500 mb-2">Découpe : Rouge (#FF0000)</h3>
                     <img class="w-full max-w-2xl rounded shadow-lg mx-auto" src="../../public/decoupe.png" alt="Découpe">
                 </div>
 
                 <!-- Gravure Bleu -->
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-blue-500 mb-4 text-lg">Gravure : Bleu (#0000FF)</span>
+                    <h3 class="text-lg font-semibold text-blue-500 mb-2">Gravure : Bleu (#0000FF)</h3>
                     <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/gravure.png" alt="Gravure">
                 </div>
 
                 <!-- Balayage Noir -->
                 <div class="flex flex-col items-center text-center md:col-span-2">
-                    <span class="text-black mb-4 text-lg">Balayage : Noir (#000000)</span>
+                    <h3 class="text-lg font-semibold text-black mb-2">Balayage : Noir (#000000)</h3>
                     <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/balayage.png" alt="Balayage">
                 </div>
             </div>
         </section>
 
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="sizelaser">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="sizelaser">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Epaisseur des contours</h2>
             <p class="mb-4">Il vous faudra parfois mettre vos contours à zéro ou alors juste changer l'épaisseur, car celle-ci vous perturbe. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
 
@@ -238,7 +237,7 @@
             </div>
         </section>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="downloads">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="downloads">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Enregistrement du fichier</h2>
 
             <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
@@ -257,13 +256,13 @@
 
                 <!-- Sélectionner le format souhaité -->
                 <div class="flex flex-col items-center text-center">
-                    <p class="mb-4">Sélectionnez le format souhaité :</p>
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Sélectionnez le format souhaité :</h3>
                     <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/Enregistrement2.png" alt="Enregistrement - étape 2">
                 </div>
             </div>
         </section>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="dimension">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="dimension">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Redimensionner le fichier</h2>
             <p class="mb-2">Vous pouvez redimensionner votre fichier en fonction de vos besoins. Suivez les étapes ci-dessous :</p>
 
@@ -276,13 +275,13 @@
 
                 <!-- Sélectionner le format souhaité -->
                 <div class="flex flex-col items-center text-center">
-                    <p class="mb-4">Sélectionnez le format souhaité :</p>
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Sélectionnez le format souhaité :</h3>
                     <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/dimension2.png" alt="Redimensionner - étape 2">
                 </div>
             </div>
         </section>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="groups">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="groups">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Retirer les groupes</h2>
             <p class="mb-2">Sur Inkscape, on peut former des groupes. Cependant, ces groupes peuvent causer des problèmes lors de la découpe laser ou de l’utilisation de la brodeuse. Assurez-vous qu’aucun groupe n’a été créé par erreur en utilisant cette extension.</p>
 
@@ -297,7 +296,7 @@
 
 
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Support</h2>
             <p class="text-gray-700">
                 Si vous avez des questions ou des problèmes, consultez le
