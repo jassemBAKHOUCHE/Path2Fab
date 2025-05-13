@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Path2Fab - Documentation</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+    body { font-family: 'Poppins', sans-serif;
+            background-color: #fdfaf5;
+            color: #333; }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+
+<!-- Header -->
+<header class="bg-[#073b4c] text-white py-4 fixed w-full shadow-md z-50">
+
+    <div class="container mx-auto flex justify-between items-center px-6">
+        <a href="#" class="text-2xl font-bold">Path2Fab</a>
+        <nav>
+            <ul class="flex space-x-6">
+                <li><a href="./starter.html" class="hover:text-[#06d6a0]">Mode Débutant</a></li>
+                <li><a href="./expert.html" class="hover:text-[#06d6a0]">Mode Expert</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="flex h-full pt-16 fixed w-full overflow-hidden">
+    <nav class="w-64 bg-[#073b4c] h-full text-gray-200 px-6 py-4 border-y border-black">
+        <ul class="space-y-6">
+            <li>
+                <h2 class="text-xl font-bold">La vérification</h2>
+                <ul class="space-y-2 pl-4">
+                    <li><a href="#closed" class="text-gray-400 hover:text-white transition">Formes fermées</a></li>
+                    <li><a href="#isolated" class="text-gray-400 hover:text-white transition">Eléments isolés</a></li>
+                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections de polygone</a></li>
+                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections des courbes</a></li>
+                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections des lignes</a></li>
+                    <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Vectorisation d'un texte</a></li>
+                    <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Verification des couleurs</a></li>
+                    <li><a href="" class="text-gray-400 hover:text-white transition"></a></li>
+                </ul>
+            </li>
+            <li>
+                <h2 class="text-xl font-bold">Aide à la réalisation</h2>
+                <ul class="space-y-2 pl-4">
+                    <li><a href="#helplaser" class="text-gray-400 hover:text-white transition">Mode de la laser</a></li>
+                    <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Enregistrement de fichier</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="flex-grow overflow-y-auto p-8 ">
+        <h1 class="text-3xl text-orange-500 font-bold mb-8">La vérification de fichier</h1>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="closed">Formes fermées</h2>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="isolated">Eléments isolés</h2>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="intersect">Intersections de formes</h2>
+            <p>Il y a deux sortes d'intersection.</p>
+            <p>Pour les lignes, sélectionner intersection des lignes.</p>
+            <p>Pour les courbes, sélectionner bezier intersect.</p>
+            <p>Les intersections seront mise en avant par des flèches.</p>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="vector_text">Vectorisation d'un texte</h2>
+            <p class="ml-2">Les textes non vectorisés sont reconnaissables par un encadré de couleur rouge.</p>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id=""></h2>
+
+        </section>
+
+        <h1 class="text-3xl text-orange-500 font-bold my-8">Aide à la réalisation</h1>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="helplaser">Mode de la laser</h2>
+            <ul class="list-disc ml-6">
+                <li class="text-red-500">▮ Découpe : Rouge (#FF0000)</li>
+                <li class="text-blue-500">▮ Gravure : Bleu (#0000FF)</li>
+                <li class="text-gray-700">▮ Balayage : Noir (#000000)</li>
+            </ul>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold" id="downloads">Enregistrement de fichier</h2>
+            <p>Vous pouver enregistrer votre fichier sous : </p>
+            <ul class="list-disc ml-6">
+                <li class="">▮ PDF</li>
+                <li class="">▮ DXF-12</li>
+                <li class="">▮ SVG </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold">Support</h2>
+            <p class="text-gray-700">
+                Si vous avez des questions ou des problèmes, consultez le
+                <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contactez le support technique.
+            </p>
+        </section>
+    </main>
+
+</div>
+
+
+</body>
+</html>
