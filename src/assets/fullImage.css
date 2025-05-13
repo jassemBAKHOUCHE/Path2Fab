@@ -1,0 +1,36 @@
+/* Style pour le Lightbox */
+#lightbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: fixed;  /* Positionner le lightbox en haut de la page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    z-index: 1000; /* S'assurer que le lightbox est bien au-dessus du contenu */
+    pointer-events: none; /* Empêcher les clics dans le lightbox tant qu'il est caché */
+}
+
+/* Quand le lightbox est visible */
+#lightbox.show {
+    opacity: 1;
+    pointer-events: auto; /* Permet les clics uniquement quand le lightbox est visible */
+}
+
+/* Image dans le Lightbox */
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(0);
+    pointer-events: all; /* Permet les interactions avec l'image */
+}
+
+/* Quand l'image est complètement chargée et visible */
+#lightbox.show img {
+    transform: scale(1);
+}
