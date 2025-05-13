@@ -58,7 +58,7 @@
                     <li><a href="#sizelaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Taille des contours</a></li>
                     <li><a href="#downloads" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Enregistrement du fichier</a></li>
                     <li><a href="#dimension" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Redimensionner le fichier</a></li>
-                    <li><a href="#group" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Retirer les groupes</a></li>
+                    <li><a href="#groups" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Retirer les groupes</a></li>
                 </ul>
             </li>
         </ul>
@@ -91,8 +91,8 @@
             </div>
         </section>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="isolated">
-            <h2 class="text-2xl text-orange-500 font-bold mb-4">Formes isolées</h2>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="isolated">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Eléments isolées</h2>
             <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'un objet se crée hors du plan de travail. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
@@ -138,12 +138,12 @@
 
         <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="vector_text">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Vectorisation du texte</h2>
-            <p class="mb-4 text-gray-800">Les textes non vectorisés ne sont pas compris par le laser. Il est donc essentiel de les vectoriser. Notre extension vous permet de vérifier facilement tous les textes présents dans votre design.</p>
+            <p class="mb-4 text-gray-800">Les textes non vectorisés ne sont pas compris par la découpeuse laser. Il est donc essentiel de les vectoriser. Notre extension vous permet de vérifier facilement tous les textes présents dans votre design sont vectorisés.</p>
 
             <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
             <!-- Modification sur la largeur de l'image -->
             <img class="w-full max-w-3xl mx-auto rounded shadow-md cursor-zoom-in clickable-image" src="../../public/text.png" alt="Exemple de texte non vectorisé" />
-            <p class="text-gray-700 mt-4">Si vos textes sont en rouge encadré sur l'image générée, cela veut dire qu'ils ne sont pas vectorisés !</p>
+            <p class="text-gray-700 mt-4">Si vos textes sont encadrés en rouge sur l'image générée, cela veut dire qu'ils ne sont pas vectorisés !</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-6">
                 <!-- Bloc 1 : Exemple retour -->
@@ -213,7 +213,7 @@
 
         <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="sizelaser">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Epaisseur des contours</h2>
-            <p class="mb-4">Il vous faudra parfois mettre vos contours à zéro ou alors juste changer l'épaisseur, car celle-ci vous perturbe. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
+            <p class="mb-4">Il vous faudra parfois mettre vos contours à 0 ou alors juste changer l'épaisseur, car celle-ci vous perturbe. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Sélectionner les formes -->
@@ -232,7 +232,7 @@
                 <div class="flex flex-col items-center text-center md:col-span-2">
                     <span class="mb-4 text-lg font-semibold">Choisir la taille :</span>
                     <img class="w-full max-w-2xl rounded shadow-md cursor-zoom-in clickable-image mx-auto" src="../../public/balayage.png" alt="Choisir la taille">
-                    <p class="font-semibold text-lg mt-4 mb-4 text-center">Pour finir, vous pouvez appliquer définitivement la taille sur "Appliquer" puis quitter, ou alors quitter directement et le ou les objets ne changeront pas.</p>
+                    <p class="font-semibold text-lg mt-4 mb-4 text-center">Pour finir, vous pouvez appliquer définitivement la taille sur "Appliquer" puis quitter, ou alors quitter directement et les objets ne changeront pas.</p>
                 </div>
             </div>
         </section>
