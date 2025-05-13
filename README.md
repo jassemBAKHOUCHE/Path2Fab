@@ -1,26 +1,41 @@
-# Path2Fab
-## An Open-Source Inkscape extension for FabLabs
+## Path2Fab
+#### L'extension prévue pour la création dans les fablabs avec inkscape
 
-# Prerequisites
-- Inkscape downloaded
+### Notice d'installation : 
 
-# Getting strated
-Download the repository in the extensions dircetory of Inkscape
-The path should look like :<i> AppData/Roaming/inkscape/extensions</i>
+## 1. Installation python
 
-# Extensions 
+- Aller sur le site officiel de python : 
+```
+https://www.python.org/downloads/
+```
+- Installer la dernière version de python (3.13)
 
-## Lines Intersect extension
-### Demo 
+## 2. Installer l'extension 
 
-![Line_intersect_demo](https://github.com/user-attachments/assets/e619404d-3ebd-4405-81e1-079ebd928b13)
+- Téléchager l'extension depuis GitHub 
 
+```
+https://github.com/jassemBAKHOUCHE/Path2Fab/tree/main
+```
+- Copier votre fichier zip
 
-## Polygons Intersect extension
-### Demo :
-![Polygon_intersect_demo](https://github.com/user-attachments/assets/ee2e0cee-738b-405b-83d3-3954af1ee287)
+- Grâce au raccourci Windows + R, vous allez ouvrir une pop-up.
+- Entrer dans le champ texte : 
+```
+%appdata%
+```
 
+- Puis valider, afin d'arriver dans un dossier 
+- Aller dans le dossier inkscape
+- Aller dans le dossier extensions
+- Décompresser le fichier zip
+- Copier l'interieur du fichier zip dans le dossier extension
+- Ouvrez un terminal depuis le dossier extension (clique droit --> ouvrir dans un terminal)
+- Et lancer cette commande : 
 
-# Authors
-Third years student in Computer Science at USMB Bourget du Lac :
- Jassem - Lilian - Cassandre - Cassiopée - Morgane
+```bash
+pip install -r ./libs.txt/
+```
+
+Maintenant vous pouvez utiliser votre extension sur votre ordinateur. 
