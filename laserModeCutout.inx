@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Découpe</name>
+    <id>org.inkscape.extension.cutout</id>
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Path2Fab">
+                <submenu name="Laser">
+                </submenu>
+            </submenu>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">laserModeCutout.py</command>
+    </script>
+</inkscape-extension>
