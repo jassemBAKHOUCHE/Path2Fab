@@ -2,6 +2,7 @@
 import inkex
 import sys
 from inkex import Transform
+from drawArrow import ImageWithLineWindow
 
 class TooSmallObject(inkex.EffectExtension):
     def effect(self):
@@ -64,7 +65,10 @@ class TooSmallObject(inkex.EffectExtension):
                 paths = tab_paths[0]
             for i in range(1, len(tab_paths)) :
                 paths += ", " + tab_paths[i]
-            sys.stderr.write(f'Les éléments suivants sont trop petits pour la découpeuse laser.\nLeurs longeur et largeur doivent être inférieur à {limit_size} mm sans contour pour être acceptés.\nEléments impliqués : {paths}\nVous pouvez trouver ces éléments dans les calques de votre projet.')
+            sys.stderr.write(f'Les éléments suivants sont trop petits pour la découpeuse laser.\nLeur longueur et leur largeur doivent être inférieures à {limit_size} mm pour être acceptées\nEléments impliqués : {paths}\nVous pouvez trouver ces éléments dans les calques de votre projet.')
 
 if __name__ == '__main__':
-    TooSmallObject().run()
+    ink =  TooSmallObject()
+    ink.run()
+    win = ImageWithLineWindow(ink.fileName, ink.arrows, "objets_petits.jpg") 
+
