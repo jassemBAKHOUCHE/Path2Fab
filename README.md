@@ -31,11 +31,10 @@ https://github.com/jassemBAKHOUCHE/Path2Fab/tree/main
 - Aller dans le dossier extensions
 - Décompresser le fichier zip
 - Copier l'interieur du fichier zip dans le dossier extension
-- Ouvrez un terminal depuis le dossier extension (clique droit --> ouvrir dans un terminal)
-- Et lancer cette commande : 
-
-```bash
-pip install -r ./libs.txt/
-```
+- Si inkscape n'a jamais été lancé, lancer le pour la première fois
+- Fermer toute instance ouverte d'inkscape,
+- Fermer tous les programmes pour que rien n'interfère avec l'installation (facultatif, conseillé),
+- Double cliquer sur setup.py et attendre la fin du programme,
+- Lancer inkscape
 
 Maintenant vous pouvez utiliser votre extension sur votre ordinateur. 
