@@ -2,114 +2,151 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Path2Fab - Documentation</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Inkscape - Débutants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-    body { font-family: 'Poppins', sans-serif;
+        body {
+            font-family: 'Poppins', sans-serif;
             background-color: #fdfaf5;
-            color: #333; }
+            color: #333;
+        }
     </style>
 </head>
-<body class="h-screen flex flex-col">
+<body class="h-screen flex flex-col scroll-smooth">
 
 <!-- Header -->
-<header class="bg-[#073b4c] text-white py-4 fixed w-full shadow-md z-50">
-
+<header class="w-full bg-[#073b4c] text-white py-4 fixed shadow-md z-50">
     <div class="container mx-auto flex justify-between items-center px-6">
-        <a href="#" class="text-2xl font-bold">Path2Fab</a>
-        <nav>
-            <ul class="flex space-x-6">
-                <li><a href="./starter.html" class="hover:text-[#06d6a0]">Mode Débutant</a></li>
-                <li><a href="./expert.html" class="hover:text-[#06d6a0]">Mode Expert</a></li>
+        <a href="#" class="text-2xl font-bold text-orange-300 hover:text-white transition">Path2Fab</a>
+        <nav aria-label="Navigation principale">
+            <ul class="flex space-x-6 text-sm md:text-base">
+                <li><a href="./starter.html" class="hover:text-[#f4a261] transition-colors duration-300 underline-offset-4 hover:underline">Mode Débutant</a></li>
+                <li><a href="./expert.html" class="hover:text-[#f4a261] transition-colors duration-300 underline-offset-4 hover:underline">Mode Expert</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 
-<div class="flex h-full pt-16 fixed w-full overflow-hidden">
-    <nav class="w-64 bg-[#073b4c] h-full text-gray-200 px-6 py-4 border-y border-black">
-        <ul class="space-y-6">
+
+<!-- Sidebar + Content -->
+<div class="flex pt-16 h-full min-h-screen w-full">
+    <!-- Sidebar -->
+    <nav class="w-[15vw] bg-[#073b4c] fixed text-gray-200 px-6 py-6 h-screen overflow-y-auto border-r border-black" aria-label="Menu de documentation">
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-white">Sommaire</h1>
+        </div>
+        <ul class="space-y-8">
             <li>
-                <h2 class="text-xl font-bold">La vérification</h2>
-                <ul class="space-y-2 pl-4">
-                    <li><a href="#closed" class="text-gray-400 hover:text-white transition">Formes fermées</a></li>
-                    <li><a href="#isolated" class="text-gray-400 hover:text-white transition">Eléments isolés</a></li>
-                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections de polygone</a></li>
-                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections des courbes</a></li>
-                    <li><a href="#intersect" class="text-gray-400 hover:text-white transition">Intersections des lignes</a></li>
-                    <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Vectorisation d'un texte</a></li>
-                    <li><a href="#vector_text" class="text-gray-400 hover:text-white transition">Verification des couleurs</a></li>
-                    <li><a href="" class="text-gray-400 hover:text-white transition"></a></li>
+                <h2 class="text-xl font-semibold text-orange-300 border-b border-gray-700 pb-1">La vérification</h2>
+                <ul class="mt-4 space-y-2 pl-2">
+                    <li><a href="#closed" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Objets fermés</a></li>
+                    <li><a href="#isolated" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Objets isolés</a></li>
+                    <li><a href="#intersect" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Intersections</a></li>
+                    <li><a href="#vector_text" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vectorisation du texte</a></li>
+                    <li><a href="#color_check" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vérification des couleurs</a></li>
                 </ul>
             </li>
+
             <li>
-                <h2 class="text-xl font-bold">Aide à la réalisation</h2>
-                <ul class="space-y-2 pl-4">
-                    <li><a href="#helplaser" class="text-gray-400 hover:text-white transition">Mode de la laser</a></li>
-                    <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Enregistrement de fichier</a></li>
+                <h2 class="text-xl font-semibold text-orange-300 border-b border-gray-700 pb-1">Aide à la réalisation</h2>
+                <ul class="mt-4 space-y-2 pl-2">
+                    <li><a href="#helplaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Mode de la laser</a></li>
+                    <li><a href="#sizelaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Taille des contours</a></li>
+                    <li><a href="#downloads" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Enregistrement du fichier</a></li>
+                    <li><a href="#dimension" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Redimensionner le fichier</a></li>
+                    <li><a href="#groups" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Retirer les groupes</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
-    <main class="flex-grow overflow-y-auto p-8 ">
-        <h1 class="text-3xl text-orange-500 font-bold mb-8">La vérification de fichier</h1>
-
-        <section class="mb-8">
-            <h2 class="text-xl font-bold" id="closed">Formes fermées</h2>
-        </section>
-        <section class="mb-8">
-            <h2 class="text-xl font-bold" id="isolated">Eléments isolés</h2>
-        </section>
-        <section class="mb-8">
-            <h2 class="text-xl font-bold" id="intersect">Intersections de formes</h2>
-            <p>Il y a deux sortes d'intersection.</p>
-            <p>Pour les lignes, sélectionner intersection des lignes.</p>
-            <p>Pour les courbes, sélectionner bezier intersect.</p>
-            <p>Les intersections seront mise en avant par des flèches.</p>
-        </section>
-        <section class="mb-8">
-            <h2 class="text-xl font-bold" id="vector_text">Vectorisation d'un texte</h2>
-            <p class="ml-2">Les textes non vectorisés sont reconnaissables par un encadré de couleur rouge.</p>
-        </section>
-        <section class="mb-8">
-            <h2 class="text-xl font-bold" id=""></h2>
-
+    <!-- Main Content -->
+    <main class="pt-20 ml-[16vw] px-6">
+        <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">Vérification et préparation du fichier</h1>
+        <p class="bg-red-100 text-red-600 p-4 rounded-lg mb-6"><b>Important : Toutes les étapes suivantes doivent être effectuées sur un fichier préalablement enregistré. Cela garantit que vous ne perdrez pas vos modifications et que vous aurez un retour le plus complet possible.</b></p>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="closed">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Objets fermés</h2>
+            <p class="text-gray-800 mb-6">
+                Veillez à ce que toutes les formes utilisées pour la découpe soient bien fermées. Des formes ouvertes peuvent entraîner des résultats imprévus. Cette extension est conçue pour vous aider à éviter ce type de problème.
+            </p>
         </section>
 
-        <h1 class="text-3xl text-orange-500 font-bold my-8">Aide à la réalisation</h1>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="isolated">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Objets isolés</h2>
+            <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'un objet se crée hors du plan de travail. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
+        </section>
 
-        <section class="mb-8">
-            <h2 class="text-xl font-bold" id="helplaser">Mode de la laser</h2>
-            <ul class="list-disc ml-6">
-                <li class="text-red-500">▮ Découpe : Rouge (#FF0000)</li>
-                <li class="text-blue-500">▮ Gravure : Bleu (#0000FF)</li>
-                <li class="text-gray-700">▮ Balayage : Noir (#000000)</li>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="intersect">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Intersections</h2>
+            <p class="ml-2 text-gray-800 mb-6">Vous avez plusieurs types d'intersections, et l'extension les gère différemment en fonction des cas.</p>
+        </section>
+
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="vector_text">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Vectorisation du texte</h2>
+            <p class="mb-4 text-gray-800">Les textes non vectorisés ne sont pas compris par la découpeuse laser. Il est donc essentiel de les vectoriser. Notre extension vous permet de vérifier facilement tous les textes présents dans votre design sont vectorisés.
+            Si vous ne l'avez pas vectorisé, faite le grâce à l'onglet objet en chemin.</p>
+        </section>
+
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="color_check">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Vérification des couleurs</h2>
+            <p class="ml-2 text-gray-800">Vous ne savez pas si vous avez utilisé le bon rouge ou juste la bonne couleur pour la découpeuse laser ? Cette extension vous permet de le vérifier.</p>
+        </section>
+
+
+        <h1 class="text-3xl text-orange-500 font-bold mb-8 text-center">Aide à la réalisation</h1>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="helplaser">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Mode de la laser</h2>
+            <p class="text-gray-800 mb-4">Le logiciel de découpe laser cut est un logiciel permettant de passer du dessin à la réalité.</p>
+            <p class="text-gray-800 mb-4">Il ne comprend que certaines couleurs qui permettent de gérer les différents modes de découpe.</p>
+            <p class="mb-8 text-gray-800">Il vous faudra donc utiliser ces couleurs ci-dessous.</p>
+            <h3 class="text-lg font-semibold text-red-500 mb-2">Découpe : Rouge (#FF0000)</h3>
+            <h3 class="text-lg font-semibold text-blue-500 mb-2">Gravure : Bleu (#0000FF)</h3>
+            <h3 class="text-lg font-semibold text-black mb-2">Balayage : Noir (#000000)</h3>
+        </section>
+
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="sizelaser">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Epaisseur des contours</h2>
+            <p class="mb-4">Il vous faudra parfois mettre vos contours à 0 ou alors juste changer l'épaisseur, car celle-ci vous perturbe. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
+        </section>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="downloads">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Enregistrement du fichier</h2>
+
+            <p class="mb-2">Vous pouvez enregistrer votre fichier dans les formats suivants :</p>
+            <ul class="list-disc ml-8 mb-4">
+                <li>PDF</li>
+                <li>DXF-12 : pour la découpeuse laser</li>
+                <li>SVG</li>
             </ul>
         </section>
-        <section class="mb-8">
-            <h2 class="text-xl font-bold" id="downloads">Enregistrement de fichier</h2>
-            <p>Vous pouver enregistrer votre fichier sous : </p>
-            <ul class="list-disc ml-6">
-                <li class="">▮ PDF</li>
-                <li class="">▮ DXF-12</li>
-                <li class="">▮ SVG </li>
-            </ul>
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="dimension">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Redimensionner le fichier</h2>
+            <p class="mb-2">Vous pouvez redimensionner votre fichier en fonction de vos besoins. Suivez les étapes ci-dessous :</p>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-bold">Support</h2>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="groups">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Retirer les groupes</h2>
+            <p class="mb-2">Sur Inkscape, on peut former des groupes. Cependant, ces groupes peuvent causer des problèmes lors de la découpe laser ou de l’utilisation de la brodeuse. Assurez-vous qu’aucun groupe n’a été créé par erreur en utilisant cette extension.</p>
+        </section>
+
+
+
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Support</h2>
             <p class="text-gray-700">
                 Si vous avez des questions ou des problèmes, consultez le
-                <a href="#" class="text-blue-500 underline">dépôt GitHub</a> ou contactez le support technique.
+                <a href="https://github.com/jassemBAKHOUCHE/Path2Fab/tree/main" class="text-blue-500 underline">dépôt GitHub</a> ou contactez le support technique.
             </p>
         </section>
     </main>
-
 </div>
-
 
 </body>
 </html>
