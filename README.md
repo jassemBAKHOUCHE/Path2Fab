@@ -18,19 +18,8 @@ https://www.python.org/downloads/
 ```
 https://github.com/jassemBAKHOUCHE/Path2Fab/tree/main
 ```
-- Copier votre fichier zip
 
-- Grâce au raccourci Windows + R, vous allez ouvrir une pop-up.
-- Entrer dans le champ texte : 
-```
-%appdata%
-```
-
-- Puis valider, afin d'arriver dans un dossier 
-- Aller dans le dossier inkscape
-- Aller dans le dossier extensions
 - Décompresser le fichier zip
-- Copier l'interieur du fichier zip dans le dossier extension
 - Si inkscape n'a jamais été lancé, lancer le pour la première fois
 - Fermer toute instance ouverte d'inkscape,
 - Fermer tous les programmes pour que rien n'interfère avec l'installation (facultatif, conseillé),
