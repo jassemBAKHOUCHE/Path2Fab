@@ -1,6 +1,5 @@
 import math
 import os
-import gi
 import inkex
 from drawArrow import ImageWithLineWindow
 import re
@@ -31,10 +30,10 @@ class ClosedShape(inkex.EffectExtension):
                 arrow_size = 5
 
                 if bbox:
-                    start_x = (bbox.left + bbox.right) / 2
-                    start_y = (bbox.top + bbox.bottom) / 2
-
-                    center_x, center_y = bbox.left, bbox.top  
+                    center_x, center_y = bbox.left, bbox.top 
+                     
+                    start_x = center_x + 5
+                    start_y =  center_y + 5
                     
                     angle = math.atan2(center_y - start_y, center_x - start_x)
                     left_x = center_x - arrow_size * math.cos(angle - math.pi / 6)
