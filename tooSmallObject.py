@@ -1,10 +1,19 @@
 
+import math
 import inkex
 import sys
 from inkex import Transform
 from drawArrow import ImageWithLineWindow
+import warnings
+warnings.filterwarnings("ignore", category=ResourceWarning)
+
 
 class TooSmallObject(inkex.EffectExtension):
+    def __init__(self):
+        super().__init__()
+        self.fileName = self.document_path()
+        self.arrows = []
+
     def effect(self):
         limit_size = 1
         tab_paths = []
@@ -39,6 +48,23 @@ class TooSmallObject(inkex.EffectExtension):
                             if (width < limit_size or height < limit_size) : 
                                 tab_paths.append(elem.get_id())
                                 self.svg.selection.add(elem.get_id())
+
+                                arrow_size = 5
+
+                                if bbox:
+                                    
+                                    center_x, center_y = bbox.left, bbox.top 
+                                    start_x = center_x + 5
+                                    start_y =  center_y + 5
+                                    
+                                    angle = math.atan2(center_y - start_y, center_x - start_x)
+                                    left_x = center_x - arrow_size * math.cos(angle - math.pi / 6)
+                                    left_y = center_y - arrow_size * math.sin(angle - math.pi / 6)
+                                    right_x = center_x - arrow_size * math.cos(angle + math.pi / 6)
+                                    right_y = center_y - arrow_size * math.sin(angle + math.pi / 6)
+
+                                    self.arrows.append([start_x, start_y, center_x, center_y, left_x, left_y, right_x, right_y])
+
                                 break
                         
                         # rotate to put the object in the good way 
@@ -65,7 +91,10 @@ class TooSmallObject(inkex.EffectExtension):
                 paths = tab_paths[0]
             for i in range(1, len(tab_paths)) :
                 paths += ", " + tab_paths[i]
-            sys.stderr.write(f'Les éléments suivants sont trop petits pour la découpeuse laser.\nLeur longueur et leur largeur doivent être inférieures à {limit_size} mm pour être acceptées\nEléments impliqués : {paths}\nVous pouvez trouver ces éléments dans les calques de votre projet.')
+            sys.stderr.write(f'Les éléments suivants sont trop petits pour la découpeuse laser.\nLeur longueur et leur largeur doivent être inférieures à {limit_size} mm pour être acceptées\nEléments impliqués : {paths}\nVous pouvez trouver ces éléments dans les calques de votre projet.\n')
+        
+        self.msg(f"OBJETS TROP PETITS : Nombre d'erreur(s) trouvée(s): {len(self.arrows)}\n\n")
+
 
 if __name__ == '__main__':
     ink =  TooSmallObject()
