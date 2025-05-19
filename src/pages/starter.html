@@ -48,15 +48,16 @@
                     <li><a href="#small" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Objets trop petits</a></li>
                     <li><a href="#intersect" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Intersections</a></li>
                     <li><a href="#vector_text" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vectorisation du texte</a></li>
-                    <li><a href="#color_check" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vérification des couleurs</a></li>
+                    <li><a href="#color_check" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vérif des couleurs</a></li>
+                    <li><a href="#batterie" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">La batterie de test</a></li>
                 </ul>
             </li>
 
             <li>
                 <h2 class="text-xl font-semibold text-orange-300 border-b border-gray-700 pb-1">Aide à la réalisation</h2>
                 <ul class="mt-4 space-y-2 pl-2">
-                    <li><a href="#helplaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Mode de la laser</a></li>
-                    <li><a href="#sizelaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Taille des contours</a></li>
+                    <li><a href="#helplaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Mode laser</a></li>
+                    <li><a href="#sizelaser" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Taille de contour</a></li>
                     <li><a href="#downloads" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Enregistrement du fichier</a></li>
                     <li><a href="#dimension" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Redimensionner le fichier</a></li>
                     <li><a href="#groups" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Retirer les groupes</a></li>
@@ -92,7 +93,7 @@
             </div>
         </section>
 
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="isolated">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="isolated">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Objets isolés</h2>
             <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'un objet se crée hors du plan de travail. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
 
@@ -102,29 +103,17 @@
                     <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
                     <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/isolated%20element.png" alt="Polygone" />
                 </div>
-
-                <!-- Bloc 2 : Résultat -->
-                <div class="flex flex-col">
-                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Exemple de retour</h3>
-                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/retour-isolated.png" alt="Retour isolated" />
-                </div>
             </div>
         </section>
-        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="small">
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="small">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Objets trop petits</h2>
-            <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'un objet se crée hors du plan de travail. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
+            <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'on créer un objet trop petit pour la laser. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
                 <!-- Bloc 1 : Explication -->
                 <div class="flex flex-col">
                     <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
-                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/" alt="small" />
-                </div>
-
-                <!-- Bloc 2 : Résultat -->
-                <div class="flex flex-col">
-                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Exemple de retour</h3>
-                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/" alt="Retour small" />
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/small.png" alt="small" />
                 </div>
             </div>
         </section>
@@ -146,11 +135,6 @@
                     <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/beziers.png" alt="Courbes" />
                 </div>
 
-                <!-- Bloc 3 : Exemple de retour -->
-                <div class="flex flex-col">
-                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Exemple de retour</h3>
-                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/retour-intersect.png" alt="Retour intersection" />
-                </div>
             </div>
         </section>
 
@@ -182,7 +166,7 @@
 
         <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="color_check">
             <h2 class="text-2xl text-orange-500 font-bold mb-4">Vérification des couleurs</h2>
-            <p class="ml-2 text-gray-800">Vous ne savez pas si vous avez utilisé le bon rouge ou juste la bonne couleur pour la découpeuse laser ? Cette extension vous permet de le vérifier.</p>
+            <p class="ml-2 text-gray-800">Vous ne savez pas si vous avez utilisé le bon rouge ou juste la bonne couleur pour la découpeuse laser ? Cette extension vous permet de vérifier si un élément correspond auc couleurs définis par la découpeuse laser.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
                 <!-- Bloc 1 : Explication -->
@@ -190,11 +174,18 @@
                     <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
                     <img class="w-full max-w-3xl mx-auto rounded shadow-md cursor-zoom-in clickable-image" src="../../public/couleur.png" alt="Exemple de vérification de la couleur" />
                 </div>
+            </div>
+        </section>
 
-                <!-- Bloc 2 : Exemple de retour -->
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="batterie">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Batterie de test</h2>
+            <p class="ml-2 text-gray-800">Vous avez avoir envie d'avoir un fichier sans aucune erreur, vous poubez lancer la batterie de test pour y accéder</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
+                <!-- Bloc 1 : Explication -->
                 <div class="flex flex-col">
-                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Un exemple de retour :</h3>
-                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/.png" alt="Retour couleur" />
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full max-w-3xl mx-auto rounded shadow-md cursor-zoom-in clickable-image" src="../../public/batterie.png" alt="Exemple de vérification de la couleur" />
                 </div>
             </div>
         </section>
@@ -231,7 +222,7 @@
 
 
         <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md scroll-mt-20" id="sizelaser">
-            <h2 class="text-2xl text-orange-500 font-bold mb-4">Epaisseur des contours</h2>
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Taille des contours</h2>
             <p class="mb-4">Il vous faudra parfois mettre vos contours à 0 ou alors juste changer l'épaisseur, car celle-ci vous perturbe. Cette extension vous permet de changer le contour des objets que vous choisissez.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
