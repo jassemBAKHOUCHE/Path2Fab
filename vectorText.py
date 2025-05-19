@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, GdkPixbuf
-from inkex import TextElement, PathElement
+from inkex import TextElement
 import warnings
 warnings.filterwarnings("ignore", category=ResourceWarning)
 
@@ -36,7 +36,7 @@ class VectorText(inkex.EffectExtension):
                 
 
 ### DRAW ARROWS ###
-class ImageWithLineWindow(Gtk.Window):
+class ImageWithRectWindow(Gtk.Window):
     def __init__(self, SVGFile, arrowsTab):
         # Load the SVG into a GdkPixbuf
         self.pixbuf = GdkPixbuf.Pixbuf.new_from_file(SVGFile)
@@ -105,4 +105,4 @@ class ImageWithLineWindow(Gtk.Window):
 if __name__ == "__main__":
     ink = VectorText()
     ink.run()
-    win = ImageWithLineWindow(ink.fileName, ink.arrows) 
+    win = ImageWithRectWindow(ink.fileName, ink.arrows) 
