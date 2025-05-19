@@ -1,0 +1,8 @@
+svgpathtools
+numpy
+shapely
+lxml
+tinycss2
+cssselect
+pillow
+image
