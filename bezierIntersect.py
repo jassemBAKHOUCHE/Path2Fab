@@ -1,5 +1,7 @@
+import math
 import inkex
 import numpy as np
+from drawArrow import ImageWithLineWindow
 from inkex.paths import CubicSuperPath
 from lxml import etree
 from svgpathtools import parse_path
@@ -49,6 +51,11 @@ def recursive_intersection(c1, c2, depth=10, tol=1.0):
 
 
 class BezierIntersect(inkex.EffectExtension):
+    def __init__(self):
+        super().__init__()
+        self.fileName = self.document_path()
+        self.arrows = []
+
     def effect(self):
         layer = self.svg.get_current_layer()
         paths = self.svg.xpath('//svg:path', namespaces=inkex.NSS)
@@ -85,18 +92,25 @@ class BezierIntersect(inkex.EffectExtension):
                         seen_points.append(pt)
                         unique_pts.append(pt)
                 for pt in unique_pts:
-                    self.draw_cross(pt, layer)
+                    arrow_size = 5
+                    center_x, center_y = pt[0], pt[1]
+                    start_x = center_x + 5
+                    start_y =  center_y + 5
+                    
+                    angle = math.atan2(center_y - start_y, center_x - start_x)
+                    left_x = center_x - arrow_size * math.cos(angle - math.pi / 6)
+                    left_y = center_y - arrow_size * math.sin(angle - math.pi / 6)
+                    right_x = center_x - arrow_size * math.cos(angle + math.pi / 6)
+                    right_y = center_y - arrow_size * math.sin(angle + math.pi / 6)
+                    self.arrows.append([start_x, start_y, center_x, center_y, left_x, left_y, right_x, right_y])
 
-    def draw_cross(self, pt, parent):
-        group = etree.SubElement(parent, inkex.addNS('g', 'svg'))
-        line1 = etree.SubElement(group, inkex.addNS('path', 'svg'))
-        line2 = etree.SubElement(group, inkex.addNS('path', 'svg'))
-        d1 = f"M {pt[0]-2},{pt[1]-2} L {pt[0]+2},{pt[1]+2}"
-        d2 = f"M {pt[0]+2},{pt[1]-2} L {pt[0]-2},{pt[1]+2}"
-        for line, d in [(line1, d1), (line2, d2)]:
-            line.set('d', d)
-            line.set('style', 'stroke:#f00;stroke-width:1')
+        self.msg(f"INTERSECTIONS DE COURBES DE BEZIER : Nombre d'erreur(s) trouvée(s) : {len(self.arrows)}\n\n")
+                    
 
 
 if __name__ == '__main__':
     BezierIntersect().run()
+    ink = BezierIntersect()
+    ink.run()
+    win = ImageWithLineWindow(ink.fileName, ink.arrows, "bezier_intersections.jpg") 
+
