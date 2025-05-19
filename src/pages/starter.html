@@ -45,6 +45,7 @@
                 <ul class="mt-4 space-y-2 pl-2">
                     <li><a href="#closed" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Objets fermés</a></li>
                     <li><a href="#isolated" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Objets isolés</a></li>
+                    <li><a href="#small" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Objets trop petits</a></li>
                     <li><a href="#intersect" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Intersections</a></li>
                     <li><a href="#vector_text" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vectorisation du texte</a></li>
                     <li><a href="#color_check" class="text-gray-300 hover:text-white hover:pl-1 transition-all duration-200">Vérification des couleurs</a></li>
@@ -106,6 +107,24 @@
                 <div class="flex flex-col">
                     <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Exemple de retour</h3>
                     <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/retour-isolated.png" alt="Retour isolated" />
+                </div>
+            </div>
+        </section>
+        <section class="mb-10 bg-[#fff8f3] border-l-4 border-orange-300 px-6 py-6 rounded-lg shadow-md" id="small">
+            <h2 class="text-2xl text-orange-500 font-bold mb-4">Objets trop petits</h2>
+            <p class="ml-2 text-gray-800 mb-6">Il peut arriver qu'un objet se crée hors du plan de travail. Cela peut entraîner des surprises au moment de la gravure, c'est pourquoi cette fonctionnalité aide à vérifier cela avant l'utilisation.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-2">
+                <!-- Bloc 1 : Explication -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Comment y accéder</h3>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/" alt="small" />
+                </div>
+
+                <!-- Bloc 2 : Résultat -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-semibold text-[#073b4c] mb-2">Exemple de retour</h3>
+                    <img class="w-full rounded shadow-md cursor-zoom-in clickable-image" src="../../public/" alt="Retour small" />
                 </div>
             </div>
         </section>
