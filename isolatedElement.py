@@ -5,6 +5,7 @@ Check if an object is isolated
 import inkex
 import sys
 import math 
+from drawArrow import ImageWithLineWindow
 import warnings
 warnings.filterwarnings("ignore", category=ResourceWarning)
 
@@ -82,6 +83,11 @@ def intersection(Axtl, Aytl, Awidth, Aheight, Bxtl, Bytl, Bwidth, Bheight):
     return  (Axtl+Awidth) >= Bxtl and (Bxtl+Bwidth) >= Axtl and (Aytl+Aheight) >= Bytl and (Bytl+Bheight) >= Aytl
 
 class IsolatedElement(inkex.EffectExtension):
+    def __init__(self):
+            super().__init__()
+            self.fileName = self.document_path()
+            self.arrows = []
+
     def add_arguments(self, pars):
         # add argument to exclude layers
         pars.add_argument('--exclude_layers', type=str, default="layer1,svg1,namedview1,defs1", help="Comma-separated list of objects to exclude")
@@ -138,10 +144,26 @@ class IsolatedElement(inkex.EffectExtension):
                             # smallest 
                             if(distance_point < smallest):
                                 smallest = distance_point 
+
+
+                        arrow_size = 5
+                        arr_pos = []
+                        if bbox:
+                            
+                            center_x, center_y = bbox.left, bbox.top 
+                            start_x = center_x + 5
+                            start_y =  center_y + 5
+                            
+                            angle = math.atan2(center_y - start_y, center_x - start_x)
+                            left_x = center_x - arrow_size * math.cos(angle - math.pi / 6)
+                            left_y = center_y - arrow_size * math.sin(angle - math.pi / 6)
+                            right_x = center_x - arrow_size * math.cos(angle + math.pi / 6)
+                            right_y = center_y - arrow_size * math.sin(angle + math.pi / 6)
+                            arr_pos =  [start_x, start_y, center_x, center_y, left_x, left_y, right_x, right_y]
                     
                     # stock in tabs  
                     tab_minimum.append(smallest)
-                    tab_ids.append(elem.get_id())
+                    tab_ids.append((elem.get_id(), arr_pos))
 
                 except Exception:
                     continue
@@ -160,19 +182,21 @@ class IsolatedElement(inkex.EffectExtension):
                 
                 # check for each element if the smallest distance between itself and the others is smaller than 2 times the average minimum
                 for i in range(0, nb_element):
-                    if tab_minimum[i] > average*3:
+                    if tab_minimum[i] > average*2:
                         tab_paths.append(tab_ids[i])
-
         # create a good print :
         # isolated object 
         if len(tab_paths) == 0:
             sys.stderr.write('Aucun élément est isolé.\n')
         else :
             if tab_paths[0]:
-                paths = tab_paths[0]
+                paths = tab_paths[0][0]
+                self.arrows.append(tab_paths[0][1])
             for i in range(1, len(tab_paths)) :
-                paths += ", " + tab_paths[i]
+                paths += ", " + tab_paths[i][0]
+                self.arrows.append(tab_paths[i][1])
             sys.stderr.write(f'Attention : les éléments suivants sont isolés.\nEléments impliqués : {paths}\nVous pouvez trouver ces éléments dans les calques de votre projet.\n')
+            self.msg(f"OBJETS ISOLES : Nombre d'erreur(s) trouvée(s) : {len(self.arrows)}\n\n")
         # object out of the page 
         if len(tab_noInPage) == 0:
             sys.stderr.write('Aucun élément est en dehors de la page.\n')
@@ -185,4 +209,8 @@ class IsolatedElement(inkex.EffectExtension):
 
 
 if __name__ == '__main__':
-    IsolatedElement().run()
+    ink =  IsolatedElement()
+    ink.run()
+    win = ImageWithLineWindow(ink.fileName, ink.arrows, "objets_isoles.jpg") 
+
+
