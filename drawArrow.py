@@ -1,5 +1,3 @@
-
-import numpy as np
 from PIL import Image, ImageDraw
 import cairosvg
 
@@ -11,8 +9,9 @@ class ImageWithLineWindow:
 
         # Open the converted image
         pil_image = Image.open("tmp.png").convert("RGBA")
-
-        factor = 3.55
+        
+        factor = 3.75
+        
         for i in range(len(arrowsTab)):
             for j in range(len(arrowsTab[i])):
                 arrowsTab[i][j] *= factor
