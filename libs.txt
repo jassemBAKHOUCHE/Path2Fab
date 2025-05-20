@@ -6,5 +6,4 @@ tinycss2
 cssselect
 pillow
 image
-pycairo
-pygobject
+cairosvg
