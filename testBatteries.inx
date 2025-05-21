@@ -2,13 +2,13 @@
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
   <name>Test Batteries</name>
   <id>testbatteries</id>
-  <param name="vectorText" type="bool" _gui-text="Lancer text vectorise" />
-  <param name="closedShape" type="bool" _gui-text="Lancer closed shapes" />
-  <param name="bezierIntersect" type="bool" _gui-text="Lancer besier intersect" />
-  <param name="colorTest" type="bool" _gui-text="Lancer Color test" />
-  <param name="isolatedElement" type="bool" _gui-text="Lancer isolated element" />
-  <param name="polygonIntersect" type="bool" _gui-text="Lancer polygon intersect" />
-  <param name="tooSmallObject" type="bool" _gui-text="Lancer too small object" />
+  <param name="vectorText" type="bool" _gui-text="Lancer textes vectorisés" />
+  <param name="closedShape" type="bool" _gui-text="Lancer objets fermés" />
+  <param name="bezierIntersect" type="bool" _gui-text="Lancer intersections de Bézier" />
+  <param name="colorTest" type="bool" _gui-text="Lancer tests de couleurs" />
+  <param name="isolatedElement" type="bool" _gui-text="Lancer éléments isolés" />
+  <param name="polygonIntersect" type="bool" _gui-text="Lancer intersection de polygone" />
+  <param name="tooSmallObject" type="bool" _gui-text="Lancer objets trop petits" />
    
 
    
