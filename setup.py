@@ -76,7 +76,8 @@ files_to_copy = [
     "bezierIntersect.inx", "colorTest.inx", "laserModeEngraving.inx", "polygonIntersect.inx", "resize.py", "strokeSize.py",
     "bezierIntersect.py", "colorTest.py", "laserModeEngraving.py", "polygonIntersect.py", "save.inx", "vectorText.inx",
     "closedShape.inx", "laserModeCutout.inx", "laserModeScanning.inx", "save.py", "vectorText.py",
-    "closedShape.py", "laserModeCutout.py", "laserModeScanning.py", "resize.inx", "StrokeSize.inx"
+    "closedShape.py", "laserModeCutout.py", "laserModeScanning.py", "resize.inx", "StrokeSize.inx", "testBatteries.py",
+    "testBatteries.inx", "isolatedElement.py", "isolatedElement.inx", "tooSmallObject.py","tooSmallObject.inx"
 ]
 
 os.makedirs(extensions_dir, exist_ok=True)
