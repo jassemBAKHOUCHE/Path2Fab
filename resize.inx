@@ -6,11 +6,11 @@
 
     <!-- Paramètres de l'extension -->
     <param name="preset" type="optiongroup" gui-text="Présélection:">
-        <option value="custom">Personnalisé</option>
         <option value="a4">A4 (210x297 mm)</option>
         <option value="a3">A3 (297x420 mm)</option>
         <option value="letter">Lettre (216x279 mm)</option>
         <option value="square">Carré (200x200 mm)</option>
+        <option value="custom">Personnalisé</option>
     </param>
     
     <param name="width" type="float" min="1" max="1000" gui-text="Largeur (mm):">210</param>
